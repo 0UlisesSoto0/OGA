@@ -1,0 +1,214 @@
+html {
+  scroll-behavior: smooth;
+}
+*{
+  margin: 0.0875px;
+  box-sizing: border-box; /* Añadir esto para manejar el padding y el border */
+}
+
+ 
+.Encabezado {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  flex-wrap: nowrap;
+  width: 100%;
+  padding: 50px 50px 30px 50px;
+  background-color: white;
+  
+}
+.Logos{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  width: 40%;
+}
+#logo2{
+  min-width: 20%;
+}
+.menu{
+  display: flex;
+  width: 100%;
+  flex-wrap: nowrap;
+  position: relative;
+  text-align: center;
+  justify-content: space-between; /* Asegura que los elementos se distribuyan proporcionalmente */
+  margin-left: calc(5% + 5px); /* Empieza con un margen calculado */
+  transition: margin-left 0.5s ease-in-out; /* Transición suave */
+  font-family: "Montserrat", sans-serif;
+}
+.Dropdown{
+  display:none; /* Oculta el menú inicialmente */
+  flex-direction: column;
+  position: absolute; /* Permite posicionarlo bajo el ítem padre */
+  top: 100%; /* Ubica el submenú justo debajo del ítem */
+  left: 0;
+  background-color: white;
+  text-align: left;
+  justify-content: center;
+  width: 250%;
+  align-content: center;
+  margin-left: 1.3rem;
+  line-height: 2;
+  overflow: hidden; /* Asegura que los hijos no se salgan */
+  box-sizing: border-box;
+}
+.Dropdown a{
+  padding: 1.3rem;
+  font-size: 1.5rem;
+  max-height: 50px;
+  color: black;
+  white-space: wrap; /* Evita que el texto se rompa en varias líneas */
+  box-sizing: border-box;
+  line-height: 1;
+}
+
+
+.Dropdown a:active{
+  color: rgba(190, 45, 55, 0.9);
+}
+.item:hover .Dropdown {
+  display: flex; /* Muestra el submenú al pasar el cursor */
+}
+
+.item{
+  display: inline-block;
+  font-size: 1.3rem;
+  position: relative;
+  cursor: pointer;
+  width: max-content;
+  margin-left: 0.5%;
+  z-index: 5;
+  height: 60px;
+  line-height: 6;
+  flex-grow: 1;
+     /* Añade espacio interno a cada item para evitar que el texto se amontone */
+  white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+}
+
+.item:hover{
+  color: rgba(190, 45, 55, 0.9);
+}
+  .underline{
+    height: 4px;
+    background-color: rgba(190, 45, 55, 0.9);
+    position:absolute;
+    bottom: 0cm;
+    width: 0;
+    pointer-events: none;
+    transition: 0.35s;
+    border-radius: 5px;
+    z-index: 2;
+    background: linear-gradient(to right, rgba(190, 45, 55, 0.9) 100%);
+  }
+@media (max-width: 1500px) {
+  .menu {
+      margin-left: calc(0% + 30px); /* Disminuye el margen al 5% + 50px en pantallas medianas */
+  }
+  #logo2{
+      min-width: 25%;
+      margin-left: calc(5% + 0px); /* Empieza con un margen calculado */
+  }
+}
+@media screen and (max-width: 1350px) {
+  .item{
+    transition: 0.35s;
+    font-size: 0.8rem;
+    line-height: 7.5;
+  }
+  .Encabezado{
+    padding: 45px;
+    transition: 0.35s;
+  }
+  .Logos{
+    transition: 0.35s;
+    scale: 0.85;
+  }
+  .underline{
+    height: 3.5px;
+  }
+}
+@media screen and (max-width: 1120px) {
+  .item{
+    transition: 0.35s;
+    font-size: 0.7rem;
+    line-height: 8.5;
+  }
+  .Encabezado{
+    padding: 40px;
+    transition: 0.35s;
+  }
+  .Logos{
+    transition: 0.35s;
+    scale: 0.65;
+  }
+  #logo2{
+    min-width: 15%;
+    margin-left: 0 /* Empieza con un margen calculado */
+  }
+  .Encabezado{
+    padding: 35px;
+    transition: 0.35s;
+  }
+  .underline{
+    height: 3px;
+  }
+}
+@media screen and (max-width: 1160px){
+  .item{
+      padding: 1px;
+  
+  }
+}
+@media screen and (max-width: 950px){
+  .item{
+    padding: 2px;
+
+  }
+}
+@media screen and (max-width: 910px){
+  .Encabezado{
+    padding: 30px;
+    transition: 0.35s;
+  }
+  .underline{
+    height: 2.5px;
+  }
+}
+
+@media screen and (max-width: 850px){
+  .item{
+    padding: 2px;
+
+  }
+  .item{
+    line-height: 6.5;
+  }
+}
+
+  nav .item:nth-child(1):hover ~ .underline{
+    transform: translateX(0%);
+  }
+  nav .item:nth-child(2):hover ~ .underline{
+    transform: translateX(0%);
+  }
+  nav .item:nth-child(3):hover ~ .underline{
+    transform: translateX(0%);
+  }
+  nav .item:nth-child(4):hover ~ .underline{
+    transform: translateX(0%);
+  }
+
+
+  /* Primer panel */ 
+.PrimerPanel{
+  grid-area: 1/2/3/5;
+  display: grid;
+  grid-template-columns: 1fr;
+
+  height: 600px;
+  max-width: 100%;
+  background-image: linear-gradient(to right,  rgb(0, 0, 0), rgba(255,0,0,0)), url(./Imagenes/foto_inicio.jpg);
+}
