@@ -1,0 +1,1235 @@
+@import url('https://fonts.googleapis.com/css2?family=Flamenco:wght@300;400&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --azulTabla: rgb(32, 114, 184);
+    --azulTabla2: rgb(29, 112, 183);
+    --blancoTabla: rgb(238, 244, 249);
+    --grisAnuncios: #756b6b;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    max-width: 140rem;
+}
+
+/*Elemento de Bienvenida*/
+.BienvenidaSA {
+    display: flex;
+}
+
+.BienvenidaSA div {
+    flex-basis: 50%;
+    align-self: center;
+    justify-self: center;
+}
+
+@media (min-width: 721px) {
+    .BienvenidaSA {
+        flex-direction: row;
+    }
+
+    .TituloSA {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .MensajePrincipalSA {
+        max-width: 50rem;
+        margin: 0 2rem;
+    }
+
+    .mensajePrincipalSA__centrar {
+        margin: auto;
+        margin-bottom: 5rem;
+        margin: 0 2rem;
+    }
+
+    .SeparacionPlantas {
+        margin-top: 4rem;
+    }
+}
+
+@media (max-width: 720px) {
+    .BienvenidaSA {
+        flex-direction: column;
+    }
+
+    .TituloSA {
+        display: inline-flex;
+        justify-content: start;
+        align-items: center;
+        margin-left: 3rem;
+        margin-bottom: 5rem;
+    }
+
+    .mensajePrincipalSA__centrar p {
+        margin-bottom: 3rem;
+    }
+
+    .mensajePrincipalSA__centrar {
+        margin: 0 3rem;
+    }
+
+}
+
+.tituloSA__centrar {
+    font-size: 1.3em;
+    line-height: 1.3;
+}
+
+.mensajePrincipalSA__centrar {
+    font-size: 1.9rem;
+    text-align: justify;
+    /* font-weight: 300; */
+}
+
+
+/*Elemento de Separacion*/
+.SeparacionPlantas {
+    min-height: 15rem;
+    margin-bottom: 6rem;
+    background-image: url(../IMAGES/SolicitudAD/plantas.png);
+}
+
+
+
+
+
+/*Elemento trajetas con informacion*/
+
+@media (min-width: 770px) and (max-width: 810px) {
+    #TituloDescripcion {
+        font-size: 1.8rem;
+    }
+
+    #DescripcionEscrita {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 651px) and (max-width: 769px) {
+    #TituloDescripcion {
+        font-size: 1.5rem;
+    }
+
+    #DescripcionEscrita {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 650px) {
+    #TituloDescripcion {
+        font-size: 1.8rem;
+    }
+
+    #DescripcionEscrita {
+        font-size: 1.5rem;
+    }
+}
+
+.Presentaciones {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    align-items: end;
+    margin: 5rem 0rem;
+}
+
+.TarjetasP {
+    width: 100%;
+    display: grid;
+    grid-template-areas: 'imagen'
+        'descripcion';
+    align-items: end;
+
+}
+
+@media (min-width: 1050px) {
+    #Numeracion {
+        left: 16%;
+    }
+}
+
+@media (min-width: 750px) and (max-width: 1049px) {
+    #Numeracion {
+        left: 6%;
+    }
+}
+
+@media (max-width: 749px) {
+    #Numeracion {
+        left: 2%;
+    }
+}
+
+@media (min-width: 650px) {
+    #Numeracion p {
+        font-size: 2rem;
+        width: 4rem;
+        height: 4rem;
+    }
+}
+
+@media (max-width: 649px) {
+    #Numeracion p {
+        font-size: 1.5rem;
+        width: 3rem;
+        height: 3rem;
+    }
+}
+
+@media (min-width: 650px) {
+    .DescripcionesCelular {
+        display: none;
+    }
+
+    #DescripcionEscrita {
+        word-break: break-all;
+    }
+}
+
+@media (max-width: 649px) {
+    #Numeracion {
+        display: none !important;
+    }
+}
+
+/* 550 celular */
+
+#Numeracion {
+    /* grid-area: numeracion; */
+    display: flex;
+    justify-content: right;
+    position: absolute;
+    top: 0;
+}
+
+#Numeracion p {
+    background-color: #38A7DF;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: 900;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+#imagenT {
+    position: relative;
+    grid-area: imagen;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+#imagenT img {
+    height: 15rem;
+}
+
+#DescripcionT {
+    grid-area: descripcion;
+    text-align: center;
+    margin: auto;
+}
+
+#TituloDescripcion {
+    margin: 1.7rem 0rem;
+    font-weight: 500;
+}
+
+#DescripcionEscrita {
+    margin: auto;
+    font-weight: 300;
+    max-width: 28rem;
+}
+
+#DescripcionEscrita a {
+    text-decoration: none;
+    color: rgb(53, 129, 223);
+    display: block;
+    text-align: center;
+}
+
+#DescripcionEscrita span {
+    color: rgb(53, 129, 223);
+}
+
+.descripcionEscrita3,
+.descripcionEscrita1 {
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+}
+
+/* CARRUCEL */
+
+@media (max-width: 649px) {
+    .Presentaciones {
+        display: none;
+    }
+
+    #imagenT img {
+        height: 23rem;
+    }
+
+
+
+    .DescripcionesCelular {
+        display: flex;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .TarjetasP {
+        margin: 0;
+        display: flex;
+    }
+
+    .CarruselTarjetas {
+        display: flex;
+        align-items: center;
+        align-content: space-between;
+        justify-content: center;
+        flex-wrap: nowrap;
+        width: 90%;
+    }
+
+    #DescripcionT {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.carousel-nav {
+    display: flex;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    width: 5rem;
+    height: 5rem;
+    background-color: rgb(194, 19, 48);
+    border: none;
+    color: white;
+    font-size: 3rem;
+    border-radius: 50%;
+}
+
+.carousel-nav:hover {
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+/*Elemento de CaracteristicasB*/
+.ElementoPrincipalCB {
+    margin-top: 12rem;
+    margin-bottom: 3rem;
+}
+
+@media (min-width: 900px) {
+    .ElementoPrincipalCB {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .TituloCB {
+        display: flex;
+        margin: auto;
+        line-height: 1.3;
+        font-size: 1.5em;
+    }
+
+    .TituloCB {
+        max-width: 35rem;
+    }
+
+    .DescripcionesCB div {
+        max-width: 42rem;
+    }
+
+    .DescripcionesCB {
+        margin-right: 1rem;
+        margin-left: 3rem;
+    }
+
+    .flechaBidon1,
+    .flechaBidon2 {
+        left: -4%;
+    }
+}
+
+@media (min-width: 510px) and (max-width: 899px) {
+    .TituloCB {
+        line-height: 1.2;
+        margin-bottom: 3rem;
+        font-size: 1.5em;
+    }
+
+    .DescripcionesCB div {
+        margin: 0 1rem;
+    }
+
+    .flechaBidon1,
+    .flechaBidon2 {
+        scale: 2;
+    }
+
+    .DescripcionesCB {
+        margin-right: 1rem;
+        margin-left: 4.5rem;
+    }
+
+    .DescripcionesCB div {
+        max-width: 71rem;
+    }
+
+    .DescripcionesCB div:first-child {
+        margin-bottom: 3rem;
+    }
+
+    .flechaBidon1,
+    .flechaBidon2 {
+        left: -4%;
+    }
+}
+
+@media (max-width: 509px) {
+    .TituloCB {
+        line-height: 1.2;
+        margin-bottom: 3rem;
+        font-size: 1em;
+    }
+
+    .DescripcionesCB div {
+        margin: 0 1rem;
+    }
+
+    .flechaBidon1,
+    .flechaBidon2 {
+        scale: 1.5;
+    }
+
+    .DescripcionesCB {
+        margin-right: 1rem;
+        margin-left: 4.5rem;
+    }
+
+    .DescripcionesCB div {
+        max-width: 71rem;
+    }
+
+    .DescripcionesCB div:first-child {
+        margin-bottom: 3rem;
+    }
+
+    .flechaBidon1,
+    .flechaBidon2 {
+        left: -8%;
+    }
+}
+
+.TituloCB h1 {
+    margin: 0 1rem;
+    font-size: 1.7em;
+}
+
+.DescripcionesCB {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+.DescripcionesCB div {
+    position: relative;
+    border-bottom: 2px #38A7DF solid;
+}
+
+.flechaBidon1 {
+    position: absolute;
+    top: 20%;
+}
+
+.flechaBidon2 {
+    position: absolute;
+    top: 10%;
+}
+
+
+/* ElementoSecundarioCBk */
+
+@media (min-width: 900px) {
+    .ElementoSecundarioCB {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .ElementoSecundarioCB p {
+        margin-top: 8rem;
+        margin-right: 1rem;
+
+    }
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+    .ElementoSecundarioCB {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: 'bidon1 bidon2';
+    }
+
+    .ElementoSecundarioCB p {
+        text-align: center;
+    }
+
+    .divBidon1 {
+        grid-area: bidon1;
+    }
+
+    .divBidon2 {
+        grid-area: bidon2;
+    }
+}
+
+@media (max-width: 599px) {
+    .ElementoSecundarioCB {
+        /* display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column; */
+        width: 100%;
+    }
+    .bidonSecundario1,
+    .bidonSecundario2,
+    .ElementoSecundarioCB p{
+        margin: auto;
+        /* display: flex;
+        justify-self: center;
+        flex-direction: column; */
+    }
+
+    .ElementoSecundarioCB p {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+}
+
+.ElementoSecundarioCB img {
+    display: flex;
+    justify-self: center;
+    align-self: end;
+}
+
+.ElementoSecundarioCB p {
+    display: flex;
+    justify-self: center;
+    align-self: flex-start;
+    max-width: 25rem;
+}
+
+.bidonSecundario1 {
+    height: 35rem;
+}
+
+.bidonSecundario2 {
+    height: 30rem;
+}
+
+
+
+/* TABLA */
+/*Elemento de Calidad de Agua*/
+.CalidadA {
+    display: grid;
+    grid-template-rows: 15rem 1fr;
+    grid-template-rows: auto;
+    margin-top: 5rem;
+}
+
+.TituloCA {
+    /* position: relative; */
+    justify-self: start;
+    align-self: center;
+    margin-left: 2rem;
+    grid-column: 1/3;
+}
+
+.TituloCA div {
+    width: 100%;
+}
+
+@media (min-width: 510px) {
+    .TituloCA h1 {
+        font-size: 2.6em;
+    }
+
+    #DescripcionCA {
+        font-size: 1.3em;
+    }
+}
+
+@media (max-width: 509px) {
+    .TituloCA h1 {
+        font-size: 1.7em;
+    }
+
+    #DescripcionCA {
+        font-size: 1em;
+    }
+}
+
+.TituloCA h1 {
+    line-height: 1.1;
+    margin: 0;
+}
+
+.tablaCA {
+    grid-column: 1/3;
+    grid-row: 2;
+    margin-top: 3rem;
+    width: 100%;
+}
+
+.descripcionImagen {
+    grid-column: 1/3;
+    grid-row: 3;
+    max-width: 65rem;
+    display: flex;
+    justify-self: center;
+    color: var(--grisAnuncios);
+    margin: 0 2rem;
+    margin-top: 2rem;
+    text-align: justify;
+}
+
+.tablaCA__renglon5 p {
+    border-bottom: solid var(--azulTabla2) .2rem;
+}
+
+.tablaCA__renglon5 p,
+.tablaCA__renglon4 p,
+.tablaCA__renglon3 p {
+    border-top: dashed var(--azulTabla2) .05rem;
+}
+
+.tablaCA__renglon5,
+.tablaCA__renglon4,
+.tablaCA__renglon3,
+.tablaCA__renglon2,
+.tablaCA__titulos,
+.tablaCA__titulos div {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+.tablaCA__renglon5,
+.tablaCA__renglon4,
+.tablaCA__renglon3,
+.tablaCA__renglon2 {
+    padding: 0.4rem 0 0rem 0;
+}
+
+.tablaCA__renglon5>p:first-child,
+.tablaCA__renglon5>p:nth-of-type(3),
+.tablaCA__renglon5>p:nth-of-type(5),
+.tablaCA__renglon4>p:nth-of-type(3),
+.tablaCA__renglon3>p:nth-of-type(3),
+.tablaCA__renglon2>p:nth-of-type(3),
+.tablaCA__renglon4>p:nth-of-type(5),
+.tablaCA__renglon3>p:nth-of-type(5),
+.tablaCA__renglon2>p:nth-of-type(5),
+.tablaCA__renglon4>p:first-child,
+.tablaCA__renglon3>p:first-child,
+.tablaCA__renglon2>p:first-child {
+    border-right: solid var(--azulTabla2) .2rem;
+    border-left: solid var(--azulTabla2) .2rem;
+}
+
+@media (min-width: 680px) {
+
+    .tablaCA__renglon5>p:first-child,
+    .tablaCA__renglon4>p:first-child,
+    .tablaCA__renglon3>p:first-child,
+    .tablaCA__renglon2>p:first-child,
+    .tablaCA__titulos>p:first-child {
+        width: 30rem;
+        padding-left: 0.5rem;
+    }
+
+    .tablaCA__renglon5>p:not(:first-of-type),
+    .tablaCA__renglon4>p:not(:first-of-type),
+    .tablaCA__renglon3>p:not(:first-of-type),
+    .tablaCA__renglon2>p:not(:first-of-type),
+    .tablaCA__titulos div>p {
+        width: 9rem;
+    }
+}
+
+@media (min-width: 450px) and (max-width: 679px) {
+
+    .tablaCA div p,
+    .tablaCA div div p {
+        font-size: 1.3rem;
+    }
+
+    .tablaCA__renglon5>p:first-child,
+    .tablaCA__renglon4>p:first-child,
+    .tablaCA__renglon3>p:first-child,
+    .tablaCA__renglon2>p:first-child,
+    .tablaCA__titulos>p:first-child {
+        width: 22.5rem;
+        padding-left: 0.5rem;
+    }
+
+    .tablaCA__renglon5>p:not(:first-of-type),
+    .tablaCA__renglon4>p:not(:first-of-type),
+    .tablaCA__renglon3>p:not(:first-of-type),
+    .tablaCA__renglon2>p:not(:first-of-type),
+    .tablaCA__titulos div>p {
+        width: 5.3rem;
+    }
+}
+
+@media (min-width: 404px) and (max-width: 449px) {
+
+    .tablaCA div p,
+    .tablaCA div div p {
+        font-size: 1.2rem;
+    }
+
+    .tablaCA__renglon5>p:first-child,
+    .tablaCA__renglon4>p:first-child,
+    .tablaCA__renglon3>p:first-child,
+    .tablaCA__renglon2>p:first-child,
+    .tablaCA__titulos>p:first-child {
+        width: 20.7rem;
+        padding-left: 0.4rem;
+    }
+
+    .tablaCA__renglon5>p:not(:first-of-type),
+    .tablaCA__renglon4>p:not(:first-of-type),
+    .tablaCA__renglon3>p:not(:first-of-type),
+    .tablaCA__renglon2>p:not(:first-of-type),
+    .tablaCA__titulos div>p {
+        width: 4.7rem;
+    }
+}
+
+@media (min-width:370px) and (max-width: 403px) {
+
+    .tablaCA div p,
+    .tablaCA div div p {
+        font-size: 1.1rem;
+    }
+
+    .tablaCA__renglon5>p:first-child,
+    .tablaCA__renglon4>p:first-child,
+    .tablaCA__renglon3>p:first-child,
+    .tablaCA__renglon2>p:first-child,
+    .tablaCA__titulos>p:first-child {
+        width: 18.85rem;
+        padding-left: 0.3rem;
+    }
+
+    .tablaCA__renglon5>p:not(:first-of-type),
+    .tablaCA__renglon4>p:not(:first-of-type),
+    .tablaCA__renglon3>p:not(:first-of-type),
+    .tablaCA__renglon2>p:not(:first-of-type),
+    .tablaCA__titulos div>p {
+        width: 4.3rem;
+    }
+}
+
+@media (max-width:369px) {
+
+    .tablaCA div p,
+    .tablaCA div div p {
+        font-size: 0.9rem;
+    }
+
+    .tablaCA__renglon5>p:first-child,
+    .tablaCA__renglon4>p:first-child,
+    .tablaCA__renglon3>p:first-child,
+    .tablaCA__renglon2>p:first-child,
+    .tablaCA__titulos>p:first-child {
+        width: 15.55rem;
+        padding-left: 0.3rem;
+    }
+
+    .tablaCA__renglon5>p:not(:first-of-type),
+    .tablaCA__renglon4>p:not(:first-of-type),
+    .tablaCA__renglon3>p:not(:first-of-type),
+    .tablaCA__renglon2>p:not(:first-of-type),
+    .tablaCA__titulos div>p {
+        width: 3.6rem;
+    }
+}
+
+.tablaCA__titulos div p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tablaCA__renglon5>p:not(:first-of-type),
+.tablaCA__renglon4>p:not(:first-of-type),
+.tablaCA__renglon3>p:not(:first-of-type),
+.tablaCA__renglon2>p:not(:first-of-type) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--azulTabla2);
+    font-weight: 600;
+}
+
+.tablaCA__titulos {
+    font-weight: 600;
+}
+
+.tablaCA__titulos p {
+    border: solid var(--azulTabla2) .2rem;
+    padding: .5rem 0;
+}
+
+.tablaCA__titulos>p:first-child {
+    color: var(--azulTabla);
+}
+
+.tablaCA__titulos div>p {
+    color: var(--blancoTabla);
+    background-color: var(--azulTabla2);
+}
+
+.tablaCA__titulos div {
+    background-color: var(--azulTabla2);
+}
+
+/* anuncioAD */
+
+.Logo_Correo,
+.Logo__Telefono,
+.Logo_Ubicacion,
+.Logo_Calendario,
+.Logo_Reloj,
+.Logo_FacebookR {
+    height: 2rem;
+}
+
+/* ANUNCIOS */
+
+/* .anunciosAD{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+} */
+
+@media (min-width: 200px) and (max-width: 1099px) {
+    .anunciosAD {
+        grid-template-areas: 'aguasResiduales'
+            'mapas'
+            'quejas';
+    }
+
+    .plantaTratamiento {
+        margin: 0 2.5rem;
+        margin-bottom: 20rem;
+    }
+}
+
+@media (min-width: 750px) and (max-width: 1099px) {
+    .plantaTratamiento__titulo h2 {
+        font-size: 1.9em;
+    }
+
+    .NombrePlanta {
+        font-size: 1.8em;
+    }
+
+    /* .anunciosAD__datosDeContacto p {
+        font-size: 1.2em;
+    } */
+}
+
+@media (min-width: 600px) and (max-width: 749px) {
+    .plantaTratamiento__titulo h2 {
+        font-size: 1.5em;
+    }
+
+    .NombrePlanta {
+        font-size: 1.4em;
+    }
+}
+
+@media (min-width: 300px) and (max-width: 599px) {
+    .plantaTratamiento__titulo h2 {
+        font-size: 1.3em;
+    }
+
+    .NombrePlanta {
+        font-size: 1.1em;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 749px) {
+    .anunciosAD__datosDeContacto {
+        display: grid;
+        grid-template-areas: 'datosDeContacto__izquierdaSup datosDeContacto__derechaSup'
+            'datosDeContacto__izquierdaInf datosDeContacto__derechaInf';
+        /* grid-template-columns: repeat(2, 1fr); */
+        grid-template-rows: repeat(2, 1fr);
+        margin: 0;
+        width: 100%;
+    }
+
+    .datosDeContacto__izquierdaSup {
+        grid-area: datosDeContacto__izquierdaSup;
+        margin-bottom: 2rem;
+    }
+
+    .datosDeContacto__derechaSup {
+        grid-area: datosDeContacto__derechaSup;
+        margin-bottom: 2rem;
+    }
+
+    .datosDeContacto__izquierdaInf {
+        grid-area: datosDeContacto__izquierdaInf;
+    }
+
+    .datosDeContacto__derechaInf {
+        grid-area: datosDeContacto__derechaInf;
+    }
+}
+
+@media (min-width: 550px) and (max-width: 749px) {
+    /* .anunciosAD__datosDeContacto p {
+        font-size: 1em;
+    } */
+}
+
+@media (min-width: 320px) and (max-width: 549px) {
+    /* .anunciosAD__datosDeContacto p {
+        font-size: .9em;
+    } */
+}
+
+
+.anunciosAD {
+    display: grid;
+    max-width: 100%;
+    margin-top: 10rem;
+}
+
+.plantaTratamiento {
+    grid-area: aguasResiduales;
+    line-height: 1.7;
+}
+
+.plantaTratamiento__titulo {
+    position: relative;
+}
+
+.NombrePlanta {
+    /* position: absolute; */
+    top: 3rem;
+    color: var(--grisAnuncios);
+}
+
+.plantaTratamiento__titulo h2 {
+    margin: 0;
+}
+
+
+@media (min-width: 600px) {
+    .anunciosAD__datosDeContacto {
+        top: 18rem;
+    }
+}
+
+@media (min-width: 530px) and (max-width: 599px) {
+    .anunciosAD__datosDeContacto {
+        top: 14rem;
+    }
+}
+
+@media (max-width: 529px) {
+    .anunciosAD__datosDeContacto {
+        top: 18rem;
+    }
+}
+
+.anunciosAD__datosDeContacto {
+    position: absolute;
+    left: 0;
+}
+
+.anunciosAD__datosDeContacto div {
+    display: flex;
+}
+
+.anunciosAD__datosDeContacto p {
+    color: var(--grisAnuncios);
+}
+
+@media (min-width: 1100px) {
+    .anunciosAD {
+        grid-template-areas: 'aguasResiduales quejas'
+            'mapas mapas';
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .plantaTratamiento {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .plantaTratamiento__titulo h2 {
+        font-size: 1.3em;
+    }
+
+    .NombrePlanta {
+        font-size: 1.55em;
+    }
+
+
+    .quejasAD {
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+    }
+
+    .quejasAD__titulo h2 {
+        font-size: 1.3em;
+    }
+
+    .quejasAD__datos>p:first-child {
+        max-width: 27rem;
+    }
+
+    .imgUamito {
+        max-height: 20rem;
+    }
+
+    /*  */
+    /* .quejasAD__datos>p:first-child {
+        margin-bottom: 5rem;
+    } */
+}
+@media (min-width: 1099px){
+    .quejasAD__datos {
+        row-gap: 20%;
+    }
+}
+
+@media (min-width: 940px) and (max-width: 1100px){
+    .quejasAD__datos {
+        row-gap: 80%;
+    }
+}
+
+@media (min-width: 840px) and (max-width: 939px) {
+    .quejasAD__datos {
+        row-gap: 70%;
+    }
+}
+
+@media (min-width: 740px) and (max-width: 839px) {
+    .quejasAD__datos {
+        row-gap: 30%;
+    }
+}
+
+@media (min-width: 740px) {
+    .quejasAD__datosContacto {
+        align-items: start;
+    }
+}
+
+@media (min-width: 650px) and (max-width: 739px) {
+    .quejasAD__datos {
+        row-gap: 10%;
+    }
+
+    .quejasAD__datosContacto {
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 780px) {
+    .quejasAD__datos p{
+        width: 80%;
+    }
+}
+@media (min-width: 710px) and (max-width: 779px) {
+    .quejasAD__datos p{
+        width: 90%;
+    }
+}
+
+@media (max-width: 750px) {
+    .quejasAD__datos p{
+        margin: 1rem 0;
+    }
+}
+
+@media (min-width: 751px) {
+    .imgUamito {
+        max-width: 80%;
+    }
+}
+@media (max-width: 750px) {
+    .quejasAD__datosContacto{
+        flex-direction: column;
+    }
+
+    .imgUamito {
+        max-width: 65%;
+        margin: 3rem 0;
+    }
+}
+
+
+.quejasAD {
+    grid-area: quejas;
+    line-height: 1.7;
+    margin: 0 2.5rem;
+    margin-bottom: 12rem;
+}
+
+.quejasAD__titulo h2 {
+    font-size: 1.8em;
+    margin: 0;
+    margin-bottom: 4rem;
+}
+
+.quejasAD__datosContacto {
+    display: flex;
+    column-gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.divImgUamito {
+    flex-basis: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quejasAD__datos {
+    margin: 3rem 0;
+    flex-basis: 50%;
+    display: grid;
+    flex-direction: column;
+}
+
+.quejasAD__datos p {
+    text-align: justify;
+}
+
+.quejasAD__datos>p:first-child {
+    color: var(--grisAnuncios);
+}
+
+.quejasAD__telefono,
+.quejasAD__telefono2,
+.quejasAD__correo {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    width: 100%;
+}
+@media (max-width: 400px) {
+    .quejasAD__correo{
+        word-break: break-all;
+    }    
+}
+
+
+/* MAPA */
+
+
+
+@media (min-width: 1100px) {
+    .MapaPrincipal {
+        margin: -4rem 8rem 13rem 8rem;
+    }
+}
+
+@media (min-width: 800px) and (max-width: 1099px) {
+    .MapaPrincipal {
+        margin: 8rem 4rem 9rem 4rem;
+    }
+}
+
+@media (max-width: 799px) {
+    .MapaPrincipal {
+        margin: 5rem 2rem 6rem 2rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    .logoPlantaTratamiento {
+        max-height: 9rem;
+    }
+}
+
+@media (min-width: 900px) and (max-width: 1279px) {
+    .logoPlantaTratamiento {
+        max-height: 6.5rem;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+    .logoPlantaTratamiento {
+        max-height: 5rem;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 599px) {
+    .logoPlantaTratamiento {
+        max-height: 4rem;
+    }
+}
+
+@media (min-width: 300px) and (max-width: 499px) {
+    .logoPlantaTratamiento {
+        max-height: 3rem;
+    }
+}
+
+
+.MapaPrincipal {
+    grid-area: mapas;
+}
+
+.MapaPrincipal div {
+    position: relative;
+}
+
+.MapaPrincipal img {
+    max-width: 100%;
+}
+
+.logoPlantaTratamiento {
+    position: absolute;
+    top: -2rem;
+}

@@ -1,0 +1,95 @@
+.TituloP3{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+.TituloP3 h1{
+    font-family: sans-serif;
+    font-size: 3.5rem;
+    font-weight: 600;
+    width: 30%;
+}
+.TituloP3 .inline2 {
+    position: relative; /* Necesario para posicionar elementos internos */
+    width: 100%; /* Ajusta según lo necesario */
+    height: 50px; /* Define una altura para que se note el efecto */
+}
+
+.TituloP3 .inline2::after {
+    content: ''; /* Crea una pseudo-línea */
+    position: absolute;
+    top: 170%; /* Posiciona al centro verticalmente */
+    left: 0;
+    width: 100%;
+    height: 5px; /* Grosor de la línea */
+    background-color: rgb(199, 19, 49); /* Color de la línea */
+    transform: translateY(-100%); /* Ajusta la posición exactamente en el medio */
+}
+
+
+.panelGestionSostenibleA__carrucel {
+    position: relative;
+    display: grid;
+    height: auto;
+}
+
+.EspacioV2 {
+    top: 0;
+    left: 0;
+    width: 30%;
+    height: 100%; /* Ajusta según necesites */
+    position: absolute;
+    background: linear-gradient(to right, rgba(255, 255, 255, 1) 75%, rgba(255, 255, 255, 0.05));
+    z-index: 1;
+}
+
+.Carrusel2 {
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+    background-color: white;
+    position: relative;
+}
+
+.carrusel2-contenedor {
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    gap: 20px;
+    animation: mover2 150s linear infinite;
+}
+
+/* Animación continua */
+@keyframes mover2 {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-1000%);
+    }
+}
+
+@media (max-width: 900px){
+    .Carrusel2{
+        display: none;
+        height: auto;
+    }
+    .carrusel2-contenedor{
+        animation: none;
+        display: none;
+    }
+    .EspacioV2{
+        display: none;
+    }
+    .panelGestionSostenibleA__carrucel{
+        height: auto;
+    }
+}
+
+.carrusel2-contenedor:hover {
+    animation-play-state: paused;
+}
+
+
+
+
