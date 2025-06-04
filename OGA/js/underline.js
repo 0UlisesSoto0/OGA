@@ -2,33 +2,52 @@
 const menuItems = document.querySelectorAll('.menu .item');
 const underline = document.querySelector('.underline');
 
-// Almacena el último elemento seleccionado
 let lastItem = null;
+let listenersAgregados = false;
 
-// Itera sobre cada elemento del menú
-menuItems.forEach(item => {
-  item.addEventListener('mouseenter', (e) => {
-    // Obtén el ancho y posición del elemento actual
-    const itemWidth = e.target.offsetWidth;
-    const itemLeft = e.target.offsetLeft;
+function handleMouseEnter(e) {
+  const itemWidth = e.target.offsetWidth;
+  const itemLeft = e.target.offsetLeft;
+  underline.style.width = `${itemWidth}px`;
+  underline.style.left = `${itemLeft}px`;
+  lastItem = e.target;
+}
 
-    // Ajusta el ancho y posición de la underline al tamaño completo
-    underline.style.width = `${itemWidth}px`;
+function handleMouseLeave() {
+  if (lastItem) {
+    const itemWidth = lastItem.offsetWidth;
+    const itemLeft = lastItem.offsetLeft;
+    underline.style.width = `${itemWidth / 10000}px`;
     underline.style.left = `${itemLeft}px`;
+  }
+}
 
-    // Actualiza el último elemento seleccionado
-    lastItem = e.target;
-  });
+function subrayadoRojo() {
+  const esPantallaGrande = window.innerWidth > 960;
 
-  item.addEventListener('mouseleave', () => {
-    if (lastItem) {
-      // Ajusta el ancho a la mitad y alinea el underline a la izquierda
-      const itemWidth = lastItem.offsetWidth;
-      const itemLeft = lastItem.offsetLeft;
+  if (esPantallaGrande && !listenersAgregados) {
+    menuItems.forEach(item => {
+      item.addEventListener('mouseenter', handleMouseEnter);
+      item.addEventListener('mouseleave', handleMouseLeave);
+    });
+    listenersAgregados = true;
+  }
 
-      underline.style.width = `${itemWidth / 10000}px`;
-      underline.style.left = `${itemLeft}px`; // Alineado a la izquierda
-    }
-  });
-});
+  if (!esPantallaGrande && listenersAgregados) {
+    menuItems.forEach(item => {
+      item.removeEventListener('mouseenter', handleMouseEnter);
+      item.removeEventListener('mouseleave', handleMouseLeave);
+    });
+    underline.style.width = "0px"; // Oculta el subrayado
+    listenersAgregados = false;
+  }
+}
+
+// Ejecutar al cargar y al redimensionar
+window.addEventListener('load', subrayadoRojo);
+window.addEventListener('resize', subrayadoRojo);
+
+
+
+
 
