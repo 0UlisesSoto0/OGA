@@ -7,7 +7,7 @@
     --grisOscuro: rgb(63, 63, 62);
     --rojo: rgb(199, 19, 49);
     --rojoIconos: rgb(194, 19, 48);
-    --rojoIconosClaro: rgb(219, 5, 40);    
+    --rojoIconosClaro: rgb(219, 5, 40);
 }
 
 body {
@@ -47,7 +47,7 @@ body {
 
 .presentacionYContacto__imagen {
     padding: 0 1rem;
-    height: 60rem;
+    height: 62.5rem;
     overflow: hidden;
 }
 
@@ -61,34 +61,146 @@ body {
 
 /* CONTACTO */
 
-.contactoTAR{
+.contactoTAR {
     margin-left: 5rem;
 }
 
-.contactoTAR svg{
+.contactoTAR svg:not(.contactoTAR__logoPlantaTratamiento svg) {
     height: 2rem;
 }
 
-.contactoTAR__titulo{
+.contactoTAR__titulo {
     font-size: 4rem;
     font-weight: 700;
     color: var(--grisOscuro);
     line-height: 4.5rem;
 }
 
-.contactoTAR__nombre{
+.contactoTAR__nombre {
     font-size: 2.5rem;
     font-weight: 500;
     color: var(--grisOscuro);
     margin: 1rem 0 .5rem 0;
 }
 
-.contactoTAR__separador{
+.contactoTAR__separador {
     border-bottom: .2rem var(--rojoIconos) solid;
 }
 
-.contactoTAR__numeroYCorreo{
+.contactoTAR__numeroYCorreo {
     display: grid;
     grid-template-columns: repeat(2, 50%);
 }
 
+
+.contactoTAR__telefono,
+.contactoTAR__correo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem 0;
+    margin-left: 3rem;
+    color: var(--grisOscuro);
+}
+
+.contactoTAR__correo {
+    justify-content: end;
+}
+
+
+.contactoTAR__presentacion {
+    color: var(--grisOscuro);
+    font-size: 1.2em;
+    text-align: justify;
+    margin: 4rem 3rem;
+}
+
+.contactoTAR__footer {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+}
+
+.contactoTAR__ubicacionYHorarios div {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem 0;
+    margin-left: 3rem;
+    color: var(--grisOscuro);
+}
+
+.contactoTAR__logoPlantaTratamiento {
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    margin-right: 1rem;
+    margin-bottom: 2rem;
+}
+
+.contactoTAR__logoPlantaTratamiento svg {
+    max-height: 6rem;
+}
+
+
+
+/* VIDEOS */
+
+.videos {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    grid-template-areas: 'funcion produccion'
+        'funcion historia';
+    margin: 7rem 4rem 8rem 4rem;
+    gap: 2rem;
+    color: var(--grisOscuro);
+}
+
+.videos__separador {
+    border-bottom: .1rem var(--rojoIconosClaro) solid;
+}
+
+.videos__comoFunciona {
+    grid-area: funcion;
+}
+
+.videos__comoFunciona iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 3rem;
+}
+
+.videos___comoSeProduce,
+.videos__historia {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    flex-direction: column;
+    margin: 2rem 0;
+}
+
+.videos___comoSeProduce {
+    grid-area: produccion;
+}
+
+.videos__historia {
+    grid-area: historia;
+}
+
+.videos___comoSeProduce iframe,
+.videos__historia iframe {
+    border-radius: 1rem;
+}
+
+.videos___comoSeProduce p,
+.videos__historia p {
+    margin-top: 1rem;
+}
+
+
+/* PTAR */
+
+.PTAR__titulo {
+    min-height: 15rem;
+    margin-bottom: 6rem;
+    background-image: url(../IMAGES/SolicitudAD/plantas.png);
+}
