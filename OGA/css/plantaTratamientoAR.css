@@ -222,7 +222,7 @@ body {
 
 /* TARJETAS */
 
-.tarjetas {
+.PTAR__tarjetas {
     display: grid;
     grid-template-columns: repeat(2, 50%);
     grid-template-rows: repeat(2, 50%);
@@ -308,7 +308,7 @@ body {
 
 .produccionAguaDesionizada {
     margin-top: 9rem;
-    margin-bottom: 9rem;
+    margin-bottom: 4rem;
     box-shadow: .4rem .4rem 3rem rgba(0, 0, 0, 0.507);
     position: relative;
     z-index: 1;
@@ -373,15 +373,18 @@ body {
     margin: 0 6rem;
 
 }
+
 .contenido__informacion p {
     text-align: center;
     font-size: 1.2em;
 }
-.contenido__informacion span{
+
+.contenido__informacion span {
     color: black;
     font-weight: 500;
 }
-.contenido__solicitud button{
+
+.contenido__solicitud button {
     background-color: rgb(57, 167, 223);
     border: none;
     color: var(--blanco);
@@ -395,30 +398,107 @@ body {
     cursor: pointer;
     transition: transform 0.1s ease;
 }
-.contenido__solicitud button:active{
+
+.contenido__solicitud button:active {
     background-color: rgb(15, 156, 226);
 }
 
 
 
-.informaion__bidon{
+.informaion__bidon {
     display: grid;
     grid-template-columns: repeat(2, 50%);
 }
-.bidon__imagen{
+
+.bidon__imagen {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-.bidon__imagen img{
+
+.bidon__imagen img {
     max-width: 25rem;
     margin-top: -4rem;
 
 }
-.bidon__imagen p{
+
+.bidon__imagen p {
     margin-top: 0;
     font-size: .95em;
     color: black !important;
     margin-top: -2.5rem;
+}
+
+.bidon__numeros {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+}
+
+.numeros__contador {
+    font-size: 2.5em !important;
+    color: var(--negro) !important;
+}
+
+.numeros__separador {
+    border-bottom: var(--negro) .2rem solid;
+    width: 50%;
+}
+
+.numeros__bidones {
+    font-size: 1.8em !important;
+    color: var(--negro) !important;
+}
+
+
+/* duracion */
+
+.duracion {
+    display: grid;
+    grid-template-columns: repeat(1, fr);
+    margin: 0 4rem 5rem 4rem;
+}
+
+.duracion__titulo {
+    font-size: 3em;
+    font-weight: 700;
+}
+
+.duracion__tarjetas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 3rem;
+    row-gap: 3rem;
+    min-height: 90rem;
+}
+
+.tarjetas__logros {
+    border: white .15rem solid;
+    border-radius: 2rem;
+    background-image: linear-gradient(to right, rgba(226, 226, 226, 1) 0%, white 70%, white 100%);
+    box-shadow: .1rem .1rem 1rem .1rem rgb(199, 198, 198);
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.logros__titulo{
+    display: flex;
+}
+
+.logros__titulo p{
+    font-size: 2.3em;
+    font-weight: 700;
+}
+
+.logros__separacion {
+  width: 100%;
+  height: 0.3rem; /* grosor de la "línea" */
+  background: linear-gradient(to right, rgb(75, 182, 222), rgb(33, 33, 116));
+  border: none;
+  border-radius: 2rem;
 }
