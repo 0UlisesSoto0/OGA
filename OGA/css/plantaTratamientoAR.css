@@ -159,18 +159,24 @@ body {
     border-bottom: .1rem var(--rojoIconosClaro) solid;
 }
 
-.videos__comoFunciona {
-    grid-area: funcion;
+.oculto {
+    opacity: 0;
+    pointer-events: none;
 }
 
-.videos__comoFunciona iframe {
+.videoA {
+    grid-area: funcion;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.videoA iframe {
     width: 100%;
     height: 100%;
     border-radius: 3rem;
 }
 
-.videos___comoSeProduce,
-.videos__historia {
+.videoB,
+.videoC {
     display: flex;
     align-self: center;
     justify-self: center;
@@ -178,21 +184,21 @@ body {
     margin: 2rem 0;
 }
 
-.videos___comoSeProduce {
+.videoB {
     grid-area: produccion;
 }
 
-.videos__historia {
+.videoC {
     grid-area: historia;
 }
 
-.videos___comoSeProduce iframe,
-.videos__historia iframe {
+.videoB iframe,
+.videoC iframe {
     border-radius: 1rem;
 }
 
-.videos___comoSeProduce p,
-.videos__historia p {
+.videoB p,
+.videoC p {
     margin-top: 1rem;
 }
 
@@ -465,6 +471,8 @@ body {
 .duracion__titulo {
     font-size: 3em;
     font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--grisOscuro);
 }
 
 .duracion__tarjetas {
@@ -486,19 +494,20 @@ body {
     padding: 2rem;
 }
 
-.logros__titulo{
+.logros__titulo {
     display: flex;
 }
 
-.logros__titulo p{
+.logros__titulo p {
     font-size: 2.3em;
     font-weight: 700;
 }
 
 .logros__separacion {
-  width: 100%;
-  height: 0.3rem; /* grosor de la "línea" */
-  background: linear-gradient(to right, rgb(75, 182, 222), rgb(33, 33, 116));
-  border: none;
-  border-radius: 2rem;
+    width: 100%;
+    height: 0.3rem;
+    /* grosor de la "línea" */
+    background: linear-gradient(to right, rgb(75, 182, 222), rgb(33, 33, 116));
+    border: none;
+    border-radius: 2rem;
 }

@@ -69,6 +69,8 @@ observer4.observe(titulo__4);
 
 let players = [];
 let videoActivo = null;
+let esVideoPrincipal = false;
+let videoSeccion=null;
 
 function onYouTubeIframeAPIReady() {
   players = [
@@ -93,10 +95,20 @@ function onYouTubeIframeAPIReady() {
 function onPlayerStateChange(event) {
   if (event.data === YT.PlayerState.PLAYING) {
     videoActivo = event.target;
-
-    if (videoActivo.getIframe().id === 'video2') {
-      console.log('El video 2 está activo');
+    if (videoActivo.getIframe().parentElement.classList.contains('videoA')) {
+      esVideoPrincipal=false;
+    }else{
+      esVideoPrincipal=true;
     }
+
+    if (videoActivo.getIframe().parentElement.classList.contains('videos__comoFunciona')) {
+      videoSeccion='videos__comoFunciona';
+    }else if(videoActivo.getIframe().parentElement.classList.contains('videos___comoSeProduce')){
+      videoSeccion='videos___comoSeProduce';
+    }else{
+      videoSeccion='videos__historia';
+    }
+    acomodarVideos();
     // Pausa todos los demás videos que no sean el que se está reproduciendo
     players.forEach(player => {
       if (player !== event.target) {
@@ -105,3 +117,73 @@ function onPlayerStateChange(event) {
     });
   }
 }
+
+
+function acomodarVideos() {
+  const videos__comoFunciona = document.querySelector('.videos__comoFunciona');
+  const videos___comoSeProduce = document.querySelector('.videos___comoSeProduce');
+  const videos__historia = document.querySelector('.videos__historia');
+
+  if (esVideoPrincipal) {
+
+    if(videoSeccion === 'videos__comoFunciona'){
+      videos__comoFunciona.classList.add('oculto');
+    }else if(videoSeccion === 'videos___comoSeProduce'){
+      videos___comoSeProduce.classList.add('oculto');
+    }else{
+      videos__historia.classList.add('oculto');
+    }
+
+    setTimeout(() => {
+
+      if (videoActivo.getIframe().id === 'video2') {
+        videos__comoFunciona.classList.remove('videoA');
+        videos__comoFunciona.classList.remove('videoB');
+        videos__comoFunciona.classList.add('videoC');
+
+        videos___comoSeProduce.classList.remove('videoB');
+        videos___comoSeProduce.classList.remove('videoC');
+        videos___comoSeProduce.classList.add('videoA');
+
+        videos__historia.classList.remove('videoC');
+        videos__historia.classList.remove('videoA');
+        videos__historia.classList.add('videoB');
+      } else if (videoActivo.getIframe().id === 'video3') {
+
+
+
+        videos__comoFunciona.classList.remove('videoA');
+        videos__comoFunciona.classList.remove('videoC');
+        videos__comoFunciona.classList.add('videoB');
+
+        videos___comoSeProduce.classList.remove('videoB');
+        videos___comoSeProduce.classList.remove('videoA');
+        videos___comoSeProduce.classList.add('videoC');
+
+        videos__historia.classList.remove('videoB');
+        videos__historia.classList.remove('videoC');
+        videos__historia.classList.add('videoA');
+
+
+
+      }
+      else {
+        videos__comoFunciona.classList.remove('videoB');
+        videos__comoFunciona.classList.remove('videoC');
+        videos__comoFunciona.classList.add('videoA');
+
+        videos___comoSeProduce.classList.remove('videoA');
+        videos___comoSeProduce.classList.remove('videoC');
+        videos___comoSeProduce.classList.add('videoB');
+
+        videos__historia.classList.remove('videoB');
+        videos__historia.classList.remove('videoA');
+        videos__historia.classList.add('videoC');
+      }
+      videos__comoFunciona.classList.remove('oculto');
+      videos___comoSeProduce.classList.remove('oculto');
+      videos__historia.classList.remove('oculto');
+    }, 500);
+  }
+}
+
