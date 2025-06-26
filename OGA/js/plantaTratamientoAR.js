@@ -1,105 +1,107 @@
-// const contador = document.getElementsByClassName('numeros__contador')[0];
-// let numeroFinal = 492.5;
-// let duracion = 2000; // en milisegundos
-// let inicio = null;
 
-// function animarContador(timestamp) {
-//   if (!inicio) inicio = timestamp;
-//   const progreso = timestamp - inicio;
-//   const valor = Math.min(((progreso / duracion) * numeroFinal), numeroFinal);
-//   contador.textContent = valor.toFixed(1); // Mostrar con 1 decimal
+function crearObserver(contador, numFinal, duracion = 1000, desimal) {
+  let animando = false;
+  let contado = false;
+  let inicio = null;
 
-//   if (valor < numeroFinal) {
-//     requestAnimationFrame(animarContador);
-//   }
-// }
+  function animarContador(timestamp) {
+    if (!inicio) inicio = timestamp;
+    const progreso = timestamp - inicio;
+    const valor = Math.min((progreso / duracion) * numFinal, numFinal);
+    if (desimal) {
+      contador.textContent = valor.toFixed(1);
+    } else {
+      contador.textContent = valor.toFixed(0);
+    }
 
-// requestAnimationFrame(animarContador);
-
-
-
-
-// const contadorEl = document.querySelector('.numeros__contador');
-// let numeroFinal = 492.5;
-// let duracion = 2000;
-// let inicio = null;
-// let animando = false;
-
-// function animarContador(timestamp) {
-//   if (!inicio) inicio = timestamp;
-//   const progreso = timestamp - inicio;
-//   const valor = Math.min((progreso / duracion) * numeroFinal, numeroFinal);
-//   contadorEl.textContent = valor.toFixed(1);
-//   if (valor < numeroFinal) {
-//     requestAnimationFrame(animarContador);
-//   } else {
-//     animando = false;
-//   }
-// }
-
-// // Observar el elemento cuando entra en pantalla
-// const observer = new IntersectionObserver((entries) => {
-//   entries.forEach(entry => {
-//     if (entry.isIntersecting && !animando) {
-//       animando = true;
-//       inicio = null;
-//       requestAnimationFrame(animarContador);
-//     } else if (!entry.isIntersecting) {
-//       // Reinicia el contador si se sale de pantalla
-//       contadorEl.textContent = '0';
-//       animando = false;
-//       inicio = null;
-//     }
-//   });
-// }, {
-//   threshold: 0.5 // Se activa cuando el 50% del elemento es visible
-// });
-
-// observer.observe(contadorEl);
-
-
-const contadorEl = document.querySelector('.numeros__contador');
-const seccion = document.querySelector('.contenido__informacion');
-
-let numeroFinal = 492.5;
-let duracion = 1000;
-let inicio = null;
-let animando = false;
-let yaContado = false;
-
-function animarContador(timestamp) {
-  if (!inicio) inicio = timestamp;
-  const progreso = timestamp - inicio;
-  const valor = Math.min((progreso / duracion) * numeroFinal, numeroFinal);
-  contadorEl.textContent = valor.toFixed(1);
-  if (valor < numeroFinal) {
-    requestAnimationFrame(animarContador);
-  } else {
-    animando = false;
-    yaContado = true;
+    if (valor < numFinal) {
+      requestAnimationFrame(animarContador);
+    } else {
+      animando = false;
+      contado = true;
+    }
   }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !animando && !contado) {
+        animando = true;
+        inicio = null;
+        requestAnimationFrame(animarContador);
+      } else if (!entry.isIntersecting) {
+        contador.textContent = '0';
+        contado = false;
+        animando = false;
+        inicio = null;
+      }
+    });
+  }, {
+    threshold: 0.6
+  });
+
+  return observer;
 }
 
-// Observa la sección completa, no solo el número
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting && !animando && !yaContado) {
-      animando = true;
-      inicio = null;
-      requestAnimationFrame(animarContador);
-    } else if (!entry.isIntersecting) {
-      // Cuando salimos completamente de la sección, reiniciar
-      contadorEl.textContent = '0';
-      yaContado = false;
-      animando = false;
-      inicio = null;
+const contadorBidon = document.querySelector('.numeros__contador');
+const seccionBidon = document.querySelector('.contenido__informacion');
+const titulo__1 = document.querySelector('.titulo__1');
+const titulo__2 = document.querySelector('.titulo__2');
+const titulo__3 = document.querySelector('.titulo__3');
+const titulo__4 = document.querySelector('.titulo__4');
+
+const observer0 = crearObserver(contadorBidon, 492.5, 1000, true);
+observer0.observe(seccionBidon);
+
+const observer1 = crearObserver(titulo__1, 20, 1000, false);
+observer1.observe(titulo__1);
+
+const observer2 = crearObserver(titulo__2, 1260, 1000, false);
+observer2.observe(titulo__2);
+
+const observer3 = crearObserver(titulo__3, 1080, 1000, false);
+observer3.observe(titulo__3);
+
+const observer4 = crearObserver(titulo__4, 1080, 1000, false);
+observer4.observe(titulo__4);
+
+
+// CONTROL DE LOS VIDEOS DE YOUTUVE
+
+let players = [];
+let videoActivo = null;
+
+function onYouTubeIframeAPIReady() {
+  players = [
+    new YT.Player('video1', {
+      events: {
+        'onStateChange': onPlayerStateChange
+      }
+    }),
+    new YT.Player('video2', {
+      events: {
+        'onStateChange': onPlayerStateChange
+      }
+    }),
+    new YT.Player('video3', {
+      events: {
+        'onStateChange': onPlayerStateChange
+      }
+    })
+  ];
+}
+
+function onPlayerStateChange(event) {
+  if (event.data === YT.PlayerState.PLAYING) {
+    videoActivo = event.target;
+
+    if (videoActivo.getIframe().id === 'video2') {
+      console.log('El video 2 está activo');
     }
-  });
-}, {
-  threshold: .6 // Se activa cuando 50% de la sección es visible
-});
-
-observer.observe(seccion);
-
-
-
+    // Pausa todos los demás videos que no sean el que se está reproduciendo
+    players.forEach(player => {
+      if (player !== event.target) {
+        player.pauseVideo();
+      }
+    });
+  }
+}
