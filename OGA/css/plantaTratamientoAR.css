@@ -25,12 +25,17 @@ body {
 }
 
 .imagenPrincipal img {
-    border-radius: 4rem 4rem 0 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: 20% 73%;
     display: block;
+}
+
+@media (min-width: 961px) {
+    .imagenPrincipal img {
+        border-radius: 4rem 4rem 0 0;
+    }
 }
 
 /* PRESENTACION Y CONTACTO */
@@ -39,34 +44,109 @@ body {
 
 .presentacionYContacto {
     display: grid;
-    grid-template-columns: repeat(2, 50%);
     width: 100%;
     padding: 0 2rem;
     margin-top: 3rem;
 }
 
-.presentacionYContacto__imagen {
-    padding: 0 1rem;
-    height: 62.5rem;
-    overflow: hidden;
+@media (max-width: 980px) {
+    .presentacionYContacto__imagen {
+        display: none;
+    }
 }
 
-.presentacionYContacto__imagen img {
-    width: 100%;
-    height: 100%;
-    border-radius: .5rem;
-    object-fit: cover;
-    object-position: 60% 73%;
+@media (min-width: 981px) {
+    .presentacionYContacto {
+        grid-template-columns: repeat(2, 50%);
+    }
+
+    .presentacionYContacto__imagen {
+        padding: 0 1rem;
+        /* height: 62.5rem; */
+        overflow: hidden;
+        display: block;
+    }
+
+    .presentacionYContacto__imagen img {
+        width: 100%;
+        height: 100%;
+        border-radius: .5rem;
+        object-fit: cover;
+        object-position: 60% 73%;
+    }
+}
+
+@media (min-width: 1181px) {
+    .presentacionYContacto__imagen {
+        height: 62.5rem;
+    }
 }
 
 /* CONTACTO */
 
-.contactoTAR {
-    margin-left: 5rem;
+@media (max-width: 960px) {}
+
+@media (min-width: 961px) {
+    .contactoTAR {
+        margin-left: 5rem;
+    }
 }
 
+@media (min-width: 511px) {
+    .contactoTAR__numeroYCorreo {
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+    }
+
+    .contactoTAR__footer {
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+    }
+
+    .contactoTAR__logoPlantaTratamiento {
+        justify-content: end;
+
+    }
+}
+
+@media (max-width: 510px) {
+
+    .contactoTAR__titulo,
+    .contactoTAR__nombre {
+        text-align: center;
+    }
+
+    .contactoTAR__numeroYCorreo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 2rem 0;
+    }
+
+    .contactoTAR__footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /* align-items: center; */
+        margin: 2rem 0;
+    }
+
+    .contactoTAR__logoPlantaTratamiento {
+        margin: 3rem 0;
+        justify-content: center;
+        margin-right: 1rem;
+        margin-left: 5rem;
+    }
+
+    .contactoTAR__ubicacionYHorarios div {
+        justify-self: center;
+    }
+}
+
+
 .contactoTAR svg:not(.contactoTAR__logoPlantaTratamiento svg) {
-    height: 2rem;
+    height: 2rem !important;
 }
 
 .contactoTAR__titulo {
@@ -87,11 +167,9 @@ body {
     border-bottom: .2rem var(--rojoIconos) solid;
 }
 
-.contactoTAR__numeroYCorreo {
+/* .contactoTAR__numeroYCorreo {
     display: grid;
-    grid-template-columns: repeat(2, 50%);
-}
-
+} */
 
 .contactoTAR__telefono,
 .contactoTAR__correo {
@@ -115,10 +193,10 @@ body {
     margin: 4rem 3rem;
 }
 
-.contactoTAR__footer {
+/* .contactoTAR__footer {
     display: grid;
     grid-template-columns: repeat(2, 50%);
-}
+} */
 
 .contactoTAR__ubicacionYHorarios div {
     display: flex;
@@ -132,8 +210,8 @@ body {
 .contactoTAR__logoPlantaTratamiento {
     display: flex;
     align-items: end;
-    justify-content: end;
-    margin-right: 1rem;
+    /* justify-content: end; */
+    /* margin-right: 1rem; */
     margin-bottom: 2rem;
 }
 
@@ -145,12 +223,98 @@ body {
 
 /* VIDEOS */
 
+@media (min-width: 1090px) {
+    .videos {
+        grid-template-columns: 1fr 350px;
+        grid-template-areas: 'funcion produccion'
+            'funcion historia';
+        margin: 7rem 4rem 8rem 4rem;
+    }
+
+    .videoB,
+    .videoC {
+        margin: 2rem 0;
+    }
+
+    .videoA iframe {
+        width: 100%;
+        height: 100%;
+        border-radius: 3rem;
+    }
+
+    .videoB iframe,
+    .videoC iframe {
+        border-radius: 1rem;
+    }
+}
+
+@media (min-width: 730px) and (max-width: 1089px) {
+    .videos {
+        grid-template-areas: 'funcion funcion'
+            'produccion historia';
+        margin: 7rem 4rem 4rem 4rem;
+
+    }
+
+    .videoA {
+        height: 50rem;
+        margin-bottom: 2rem;
+    }
+
+    .videoB,
+    .videoC {
+        margin: 2rem 0;
+    }
+
+    .videoA iframe {
+        width: 100%;
+        height: 100%;
+        border-radius: 3rem;
+    }
+
+    .videoB iframe,
+    .videoC iframe {
+        border-radius: 1rem;
+    }
+}
+
+@media (max-width: 729px) {
+    .videos {
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: 1fr;
+        margin: 4rem 2rem 4rem 2rem;
+        grid-template-areas: 'funcion'
+            'produccion' 'historia';
+    }
+
+    .videoA,
+    .videoB,
+    .videoC {
+        width: 100%;
+    }
+
+    .videoA iframe,
+    .videoB iframe,
+    .videoC iframe {
+        width: 100%;
+        min-height: 30rem;
+        border-radius: 2rem;
+    }
+
+    .videoA {
+        display: flex;
+        align-self: center;
+        justify-self: center;
+        flex-direction: column;
+    }
+
+    .videoA p {
+        margin-top: 1rem;
+    }
+}
+
 .videos {
     display: grid;
-    grid-template-columns: 1fr 350px;
-    grid-template-areas: 'funcion produccion'
-        'funcion historia';
-    margin: 7rem 4rem 8rem 4rem;
     gap: 2rem;
     color: var(--grisOscuro);
 }
@@ -169,19 +333,13 @@ body {
     transition: opacity 1.5s ease-in-out;
 }
 
-.videoA iframe {
-    width: 100%;
-    height: 100%;
-    border-radius: 3rem;
-}
-
 .videoB,
 .videoC {
     display: flex;
     align-self: center;
     justify-self: center;
     flex-direction: column;
-    margin: 2rem 0;
+    /* margin: 2rem 0; */
 }
 
 .videoB {
@@ -190,11 +348,6 @@ body {
 
 .videoC {
     grid-area: historia;
-}
-
-.videoB iframe,
-.videoC iframe {
-    border-radius: 1rem;
 }
 
 .videoB p,

@@ -65,12 +65,12 @@ const observer4 = crearObserver(titulo__4, 1080, 1000, false);
 observer4.observe(titulo__4);
 
 
-// CONTROL DE LOS VIDEOS DE YOUTUVE
+// CONTROL DE LOS VIDEOS DE YOUTUBE
 
 let players = [];
 let videoActivo = null;
 let esVideoPrincipal = false;
-let videoSeccion=null;
+let videoSeccion = null;
 
 function onYouTubeIframeAPIReady() {
   players = [
@@ -94,21 +94,26 @@ function onYouTubeIframeAPIReady() {
 
 function onPlayerStateChange(event) {
   if (event.data === YT.PlayerState.PLAYING) {
-    videoActivo = event.target;
-    if (videoActivo.getIframe().parentElement.classList.contains('videoA')) {
-      esVideoPrincipal=false;
-    }else{
-      esVideoPrincipal=true;
+
+    if (window.innerWidth > 729) {
+      videoActivo = event.target;
+      if (videoActivo.getIframe().parentElement.classList.contains('videoA')) {
+        esVideoPrincipal = false;
+      } else {
+        esVideoPrincipal = true;
+      }
+
+      if (videoActivo.getIframe().parentElement.classList.contains('videos__comoFunciona')) {
+        videoSeccion = 'videos__comoFunciona';
+      } else if (videoActivo.getIframe().parentElement.classList.contains('videos___comoSeProduce')) {
+        videoSeccion = 'videos___comoSeProduce';
+      } else {
+        videoSeccion = 'videos__historia';
+      }
+      acomodarVideos();
     }
 
-    if (videoActivo.getIframe().parentElement.classList.contains('videos__comoFunciona')) {
-      videoSeccion='videos__comoFunciona';
-    }else if(videoActivo.getIframe().parentElement.classList.contains('videos___comoSeProduce')){
-      videoSeccion='videos___comoSeProduce';
-    }else{
-      videoSeccion='videos__historia';
-    }
-    acomodarVideos();
+
     // Pausa todos los demás videos que no sean el que se está reproduciendo
     players.forEach(player => {
       if (player !== event.target) {
@@ -126,11 +131,11 @@ function acomodarVideos() {
 
   if (esVideoPrincipal) {
 
-    if(videoSeccion === 'videos__comoFunciona'){
+    if (videoSeccion === 'videos__comoFunciona') {
       videos__comoFunciona.classList.add('oculto');
-    }else if(videoSeccion === 'videos___comoSeProduce'){
+    } else if (videoSeccion === 'videos___comoSeProduce') {
       videos___comoSeProduce.classList.add('oculto');
-    }else{
+    } else {
       videos__historia.classList.add('oculto');
     }
 
@@ -186,4 +191,3 @@ function acomodarVideos() {
     }, 500);
   }
 }
-
