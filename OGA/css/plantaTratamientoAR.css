@@ -128,7 +128,6 @@ body {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        /* align-items: center; */
         margin: 2rem 0;
     }
 
@@ -358,6 +357,26 @@ body {
 
 /* PTAR */
 
+@media (min-width: 1140px) {
+    .PTARcelular {
+        display: none;
+    }
+
+    .PTAR {
+        display: block;
+    }
+}
+
+@media (max-width: 1139px) {
+    .PTARcelular {
+        display: block;
+    }
+
+    .PTAR {
+        display: none;
+    }
+}
+
 .PTAR__titulo {
     min-height: 15rem;
     margin-bottom: 6rem;
@@ -374,7 +393,24 @@ body {
     left: 8rem;
     background-color: white;
     border-radius: 4rem;
-    /* border: solid .1rem red; */
+    padding: 0 1rem;
+}
+
+.PTARcelular__titulo {
+    min-height: 15rem;
+    margin-bottom: 6rem;
+    position: relative;
+}
+
+.PTARcelular__titulo p {
+    font-weight: 700;
+    font-size: 2em;
+    color: var(--grisOscuro);
+    position: absolute;
+    top: 5rem;
+    left: 4rem;
+    background-color: white;
+    border-radius: 4rem;
     padding: 0 1rem;
 }
 
@@ -388,6 +424,15 @@ body {
     margin: 0 4rem;
     column-gap: 1rem;
     row-gap: 2rem;
+}
+
+.tarjetas__izquierda,
+.tarjetas__derecha {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    height: 38rem;
+    overflow: hidden;
+    position: relative;
 }
 
 .informacion__izquierda {
@@ -427,15 +472,6 @@ body {
     margin-top: 1rem;
 }
 
-.tarjetas__izquierda,
-.tarjetas__derecha {
-    display: grid;
-    grid-template-columns: repeat(2, 50%);
-    height: 38rem;
-    overflow: hidden;
-    position: relative;
-}
-
 .tarjetas__izquierda img {
     width: 100%;
     height: 100%;
@@ -462,6 +498,120 @@ body {
 .tarjetas__4 img {
     object-position: 18% 10%;
 }
+
+
+/*       TARJETAS__CELULAR      */
+
+.PTARcelular__tarjetas {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    /* border: red solid .1rem; */
+    margin: auto;
+}
+
+.PTARcelular__tarjeta {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    /* grid-template-columns: 5% 60% 35%; */
+    /* grid-template-areas: 'nada PTARcelularTarjetaImg texto'; */
+    grid-template-rows: 1fr;
+    height: 45rem;
+    /* width: 60rem; */
+    width:100%;
+    overflow: hidden;
+    position: relative;
+    margin: auto;
+}
+
+.PTARcelular__tarjeta img {
+    /* grid-area: PTARcelularTarjetaImg; */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+.informacionCelular {
+    position: absolute;
+    width: 65%;
+    min-height: 50%;
+    background-color: white !important;
+    padding: 1.5rem;
+    border-radius: 2rem;
+    top: 22%;
+    left: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.informacionCelular__titulo {
+    font-size: 1.5em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--grisOscuro);
+}
+
+.informacionCelular__texto {
+    /* grid-area: texto; */
+    color: var(--gris);
+    font-size: 1.3em;
+    margin-top: 1rem;
+}
+
+.PTARcelular__boton {
+    display: flex;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    
+}
+
+.PTARcelular__prevBtn,
+.PTARcelular__nextBtn {
+    display: flex;
+    justify-self: center;
+    align-self: center;
+}
+
+.PTARcelular__prevBtn {
+    padding: 2rem;
+}
+
+.PTARcelular__nextBtn{
+    padding: 2rem;
+}
+
+.PTARcelular__boton:hover {
+    cursor: pointer;
+}
+.PTARcelular__boton:hover .PTARcelular__svg{
+    fill: var(--rojoIconosClaro);
+}
+
+.PTARcelular__boton svg {
+    fill: var(--rojoIconos);
+    min-width: 7rem;
+
+}
+
+.tarjetasCelular__1 img {}
+
+.tarjetasCelular__2 img {
+    object-position: 40% 0;
+}
+
+.tarjetasCelular__3 img {
+    object-position: 38% 10%;
+}
+
+.tarjetasCelular__4 img {
+    object-position: 18% 10%;
+}
+
 
 /* PRODUCCION DE AGUA DESIONIZADA */
 
