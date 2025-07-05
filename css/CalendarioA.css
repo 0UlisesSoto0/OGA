@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Flamenco:wght@300;400&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --blanco: #fcfcfc;
+    --negro: rgb(63, 63, 62);
+    --gris: #757575;
+    --grisOscuro: rgb(63, 63, 62);
+    --rojo: rgb(199, 19, 49);
+    --rojoIconos: rgb(194, 19, 48);
+    --rojoIconosClaro: rgb(219, 5, 40);    
+}
+
+body{
+    font-family: "Montserrat", sans-serif;
+    max-width: 140rem;
+    
+}
+.CalendarioPrincipal{
+    padding: 5rem;
+    display: flex;
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+.ListaMeses{
+    width: 10%;
+    font-size: 2rem;
+    padding-left: 40px;
+}
+.ListaMeses p:hover{
+    color: var(--rojo);
+    cursor: help;
+}
+.ListaMeses p:active{
+    cursor: pointer;
+}
+
+.CarruselCalendarioA{
+    width: 85%;
+}
+
+.swiper{
+    width: 70%;
+    max-width: 700px;
+    padding: 25px 0 25px 0;
+}
+
+.swiper-slide{
+    width: 400px;
+    height: 470px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.5);
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.swiper-slide-prev,
+.swiper-slide-next {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(0.8); /* Tamaño más pequeño */
+    filter: grayscale(100%);
+}
+  
+.swiper-slide-active {
+    opacity: 1;
+    pointer-events: auto;
+    background-color: white;
+    transform: scale(1);
+    filter: grayscale(0%);
+}
+.icons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+.icons i{
+    font-size: 30px;
+}
+.icons i:hover{
+    cursor: pointer;
+    scale: 110%;
+    transition: 0.02s;
+}
+.product-content{
+    display: flex;
+    width: 100%;
+}
+
+.product-img{
+    flex-basis: 100%;
+    text-align: center;
+}
+.product-img img{
+    width: 100%
+}
+@media screen and (max-width: 1215px) {
+    .swiper{
+        width: 100%;
+        max-width: 800px;
+        padding: 25px 0 25px 0;
+        margin: 0;
+    }
+    .CarruselCalendarioA{
+        width: 90%;
+    }
+    .ListaMeses{
+        padding-left: 20px;
+    }
+}
+
+@media screen and (max-width: 1025px) {
+    .ListaMeses{
+        padding-left: 5px;
+    }
+    .CalendarioPrincipal{
+        padding: 5rem 0rem 5rem 0rem;
+    }
+}
+@media screen and (min-width: 950px){
+    .listaMesesTablet{
+        display: none;
+    }
+}
+@media screen and (max-width: 950px) {
+    .CalendarioPrincipal{
+        flex-direction: column;
+    }
+    .ListaMeses{
+        padding-left: 0px;
+        display: none;
+    }
+    .listaMesesTablet{
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        padding: 0rem 2rem 0rem 2rem;
+    }
+    .listaMesesTablet p{
+        margin: 10px;
+        padding: 5px;
+        border-left: 1px var(--rojo) solid ;
+        border-right: 1px var(--rojo) solid ;
+    }
+    .listaMesesTablet p:hover{
+       cursor: help;
+       color: var(--rojo);
+    }
+}
+@media screen and (max-width: 800px) {
+    .CarruselCalendarioA{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .swiper-slide{
+        width: 300px;
+        height: 370px;
+        padding: 15px;
+    }
+    .swiper{
+        width: 100%;
+        max-width: 500px;
+        padding: 25px 0 25px 0;
+        margin: 0;
+    }
+    .icons{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+    }
+    .icons i{
+        font-size: 20px;
+    }
+}
+@media screen and (min-width: 501px){
+    .ListamesesSelect{
+        display: none;
+    }
+}
+@media screen and (max-width: 500px) {
+    .CalendarioPrincipal{
+        padding: 2rem 0rem 5rem 0rem;
+    }
+    .listaMesesTablet{
+        display: none;
+    }
+    .ListamesesSelect{
+        position: relative;
+        width: 80%;
+        border: 2px var(--rojo) solid;
+        border-radius: 15px;
+        margin-top: 3rem;
+        padding: 10px;
+        cursor: pointer;
+    }
+    .MesSeleccionado{
+        font-weight: bold;
+        color: #e34242;
+        text-align: center;
+    }
+    .ContenedorOpciones{
+        position: absolute;
+        width: 110%;
+        top: -30%;
+        left: -5%;
+        right: 0;
+        max-height: 100px; 
+        overflow-y: auto;   
+        background: white;
+        border: 2px solid #e34242;
+        border-radius: 20px;
+        transition: max-height 0.3s ease;
+        z-index: 10;
+        scrollbar-width: none;
+        scrollbar-color: #e34242 #f5f5f5; 
+        visibility: hidden;
+        font-size: 10px;
+    }
+    /* Cuando el menú está abierto */
+    .ListamesesSelect.open .ContenedorOpciones{
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .option {
+        padding: 10px;
+        text-align: center;
+        color: #999;
+        transition: background 0.2s;
+    }
+    .option:hover {
+        background: #f2f2f2;
+        color: #000;
+    }
+      
+    .option.active {
+        font-weight: bold;
+        color: #e34242;
+    }
+    .CarruselCalendarioA{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .swiper-slide{
+        width: 250px;
+        height: 320px;
+        padding: 15px;
+    }
+    .swiper{
+        width: 100%;
+        max-width: 400px;
+        padding: 25px 0 25px 0;
+        margin: 0;
+    }
+    .icons{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+    }
+    .icons i{
+        font-size: 20px;
+    }
+}
+@media screen and (max-width: 400px) {
+    
+    .swiper-slide{
+        width: 200px;
+        height: 270px;
+        padding: 15px;
+    }
+    .swiper{
+        width: 100%;
+        max-width: 300px;
+        padding: 20px 0 20px 0;
+        margin: 0;
+    }
+    .icons{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+    }
+    .icons i{
+        font-size: 15px;
+    }
+}

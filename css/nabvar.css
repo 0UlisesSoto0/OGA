@@ -1,0 +1,311 @@
+:root {
+  --rojoIconosMuyClaro: rgb(255, 231, 235);    
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0.0875px;
+  box-sizing: border-box;
+  /* Añadir esto para manejar el padding y el border */
+}
+
+@media (min-width: 400px) {
+  .Encabezado {
+    padding: 7% 2rem 3% 2rem;
+  }
+}
+.dropdown1 a:hover{
+  color: rgba(190, 45, 55, 0.9);
+}
+.dropdown2 a:hover{
+  color: rgba(190, 45, 55, 0.9);
+}
+.dropdown3 a:hover{
+  color: rgba(190, 45, 55, 0.9);
+}
+.Encabezado {
+  /* padding: 7% 2rem 3% 2rem; */
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.menu {
+  grid-area: enlaces;
+  position: relative;
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+}
+
+#Calen:visited,
+#Calen:active{
+  color: black !important;
+  text-decoration: none !important;
+}
+#Calen{
+  color: black;
+}
+#Calen:hover{
+  color: rgba(190, 45, 55, 0.9) !important;
+}
+
+@media (min-width: 1160px) {
+  .Encabezado {
+    padding: 2rem 1rem 0rem 6rem;
+    grid-template-columns: 1.5fr 5% 3.5fr 3rem;
+    grid-template-areas: 'imagenes espacio enlaces espacio2';
+  }
+}
+
+/* @media (min-width: 1020px) and (max-width: 1159px) {
+  .Encabezado {
+    padding: 1rem 1rem 0rem 3rem;
+    grid-template-columns: 1fr 5% 3.5fr 2rem;
+  }
+} */
+
+@media (min-width: 1020px) {
+  .Logos {
+    column-gap: 3rem;
+  }
+}
+/* aqui */
+@media (min-width: 960px) and (max-width: 1159px) {
+  .Encabezado {
+    padding: 1rem 2.5rem 0rem 2.5rem;
+    grid-template-columns: 1fr 2rem 3.5fr;
+    grid-template-areas: 'imagenes espacio enlaces';
+  }
+
+  .Logos {
+    column-gap: 3rem;
+  }
+  #logo1 svg,
+  #logo2 svg {
+    width: 100%;
+    min-width: 11rem !important;
+  }
+}
+
+@media (min-width: 960px) {
+  .Encabezado {
+    display: grid;
+  }
+}
+
+@media (min-width: 960px) {
+  /* .Encabezado {
+    display: grid;
+    padding: 2rem 1rem 0rem 2rem;
+    grid-template-areas: 'imagenes espacio enlaces espacio2';
+  } */
+
+  #logo1 svg,
+  #logo2 svg {
+    width: 100%;
+    min-width: 12rem;
+  }
+
+  .menu {
+    display: flex;
+    column-gap: 0rem;
+    flex-wrap: nowrap;
+    text-align: end;
+    align-items: center;
+  }
+
+  .item {
+    font-size: 1.3rem;
+  }
+}
+
+.Logos {
+  grid-area: imagenes;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+}
+
+#logo1,
+#logo2 {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+@media (min-width: 400px) and (max-width: 600px) {
+  .Logos {
+    margin-right: 6rem;
+  }
+}
+
+@media (max-width: 399px) {
+  .Logos {
+    margin-right: 3rem;
+    margin-left: 1rem;
+  }
+  .Encabezado {
+    padding: 7% 1rem 3% 1rem;
+  }
+}
+
+@media (min-width: 400px) and (max-width: 959px) {
+  .Logos {
+    margin-left: 1.5rem;
+  }
+}
+
+@media (max-width: 959px) {
+  .Logos {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    gap: 3rem;
+  }
+
+  #logo1 svg,
+  #logo2 svg {
+    width: 100%;
+    max-width: 19rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  .dropdown1 a:hover,
+  .dropdown2 a:hover,
+  .dropdown3 a:hover{
+    background-color: var(--rojoIconosMuyClaro);
+  }
+
+}
+
+.underline {
+  height: 4px;
+  background-color: rgba(190, 45, 55, 0.9);
+  position: absolute;
+  bottom: 0cm;
+  width: 0;
+  pointer-events: none;
+  transition: 0.35s;
+  border-radius: 5px;
+  z-index: 2;
+  background: linear-gradient(to right, rgba(190, 45, 55, 0.9) 100%);
+}
+
+/* @media (max-width: 1500px) {
+  .menu {
+      margin-left: calc(0% + 30px);
+  }
+  #logo2{
+      min-width: 25%;
+      margin-left: calc(5% + 0px);
+  }
+} */
+
+/* @media screen and (max-width: 1350px) {
+  .item {
+    transition: 0.35s;
+    font-size: 0.8rem;
+    line-height: 7.5;
+  }
+
+  .Encabezado {
+    padding: 45px;
+    transition: 0.35s;
+  }
+
+  .Logos{
+    transition: 0.35s;
+    scale: 0.85;
+  }
+
+  .underline {
+    height: 3.5px;
+  }
+} */
+
+/* @media screen and (max-width: 1120px) {
+  .item {
+    transition: 0.35s;
+    font-size: 0.7rem;
+    line-height: 8.5;
+  }
+
+  .Encabezado {
+    padding: 40px;
+    transition: 0.35s;
+  }
+
+  .Logos {
+    transition: 0.35s;
+    scale: 0.65;
+  }
+
+  #logo2 {
+    min-width: 15%;
+    margin-left: 0
+  }
+
+  .Encabezado {
+    padding: 35px;
+    transition: 0.35s;
+  }
+
+  .underline {
+    height: 3px;
+  }
+} */
+
+/* @media screen and (max-width: 1160px) {
+  .item {
+    padding: 1px;
+  }
+} */
+
+/* @media screen and (max-width: 950px) {
+  .item {
+    padding: 2px;
+  }
+} */
+
+/* @media screen and (max-width: 910px) {
+  .Encabezado {
+    padding: 30px;
+    transition: 0.35s;
+  }
+
+  .underline {
+    height: 2.5px;
+  }
+} */
+
+/* @media screen and (max-width: 850px) {
+  .item {
+    padding: 2px;
+  }
+
+  .item {
+    line-height: 6.5;
+  }
+} */
+
+nav .item:nth-child(1):hover~.underline {
+  transform: translateX(0%);
+}
+
+nav .item:nth-child(2):hover~.underline {
+  transform: translateX(0%);
+}
+
+nav .item:nth-child(3):hover~.underline {
+  transform: translateX(0%);
+}
+
+nav .item:nth-child(4):hover~.underline {
+  transform: translateX(0%);
+}

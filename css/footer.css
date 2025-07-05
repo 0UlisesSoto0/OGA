@@ -1,0 +1,635 @@
+:root {
+    --red: rgb(200, 19, 48);
+    --rosa: rgb(236, 79, 105);
+
+    --colorAZC: rgb(211, 31, 41);
+    --colorCUAJI: rgb(240, 130, 0);
+    --colorIZT: rgb(87, 165, 25);
+    --colorLER: rgb(173, 37, 168);
+    --colorXOC: rgb(0, 114, 206);
+    --colorREC: black;
+
+    --gris: #757575;
+    --grisClaro: #d3cccc;
+
+    --grisOscuro: rgb(63, 63, 62);
+    --tamañoIconos: 4rem;
+
+}
+
+a {
+    text-decoration: none;
+}
+
+/*Globales*/
+.fSeccion {
+    display: flex;
+
+    /*Separación de la barra*/
+    gap: 2rem;
+    margin-left: 0rem;
+}
+
+.espacioUnidadesUAM {
+    height: 2rem;
+}
+
+.fSeccionContenido {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.fSeccionTitulo {
+    color: var(--red);
+    font-weight: 600;
+}
+
+.fSeccion__separacion {
+    border-left: var(--rosa) solid .2rem;
+}
+
+
+.footer {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(242, 242, 242);
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas: 'fSeccion1 fSeccion2 fSeccion3 fSeccion4'
+        'fSeccion5 fSeccion5 fSeccion5 fSeccion5';
+
+    padding: 3rem 0rem 0 0rem;
+}
+
+@media (max-width: 560px) {
+    .footer {
+        grid-template-columns: 1fr;
+        grid-template-areas: 'fSeccion1'
+            'fSeccion2'
+            'fSeccion3'
+            'fSeccion4'
+            'fSeccion5';
+        gap: 2rem;
+    }
+
+    .fSeccion:not(.fSeccion5) {
+        margin: 0 2rem;
+    }
+
+    .fSeccion {
+        flex-direction: column;
+    }
+
+    .enlaces {
+        justify-content: start;
+    }
+
+    .fSeccion__separacion {
+        border-left: none;
+        border-top: var(--rosa) solid .2rem;
+    }
+
+    
+
+    .recomendacionesEnlace {
+        flex-direction: column;
+    }
+
+    .recomendacionesEnlace{
+        display: flex;
+        gap: 3rem;
+    }
+
+    .fSeccion4 .fSeccion__separacion {
+        border-left: none;
+    }
+
+    .fSeccion4__separacionInferior{
+        border-bottom: var(--rosa) solid .2rem;
+    }
+    
+
+    .fSeccion4_Recomendaciones .espacioRecomendaciones {
+        display: none;
+    }
+
+    .fSeccion4Contenido .fSeccionTitulo {
+        display: flex;
+        justify-content: start;
+    }
+
+    .fSeccion5 {
+        text-align: center;
+    }
+
+}
+
+@media (min-width: 561px) and (max-width: 960px) {
+    .footer {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: 'fSeccion1 fSeccion2'
+            'fSeccion3 fSeccion3'
+            'fSeccion4 fSeccion4'
+            'fSeccion5 fSeccion5';
+    }
+
+    .fSeccion:not(.fSeccion5) {
+        margin: 0 2rem;
+    }
+
+    /* .fSeccion4, */
+    .fSeccion3 .fSeccion__separacion {
+        display: none;
+    }
+
+    .recomendacionesEnlace {
+        flex-direction: row;
+    }
+
+    .recomendacionesEnlace a p {
+        padding: 0rem 1rem;
+    }
+
+    .fSeccion4 .fSeccion__separacion {
+        border-left: none;
+    }
+
+    .fSeccion4__titulo {
+        margin-top: 4rem;
+    }
+
+    .fSeccion4_Recomendaciones .espacioRecomendaciones {
+        display: none;
+    }
+
+    .fSeccion4Contenido .fSeccionTitulo {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.fSeccion:not(.fSeccion5) {
+    margin-left: 2rem;
+}
+
+.fSeccion1 {
+    grid-area: fSeccion1;
+}
+
+.fSeccion1__direccion {
+    margin: 2rem 0;
+}
+
+.enlaces {
+    display: flex;
+    gap: 1rem;
+}
+
+.enlace__icono {
+    width: var(--tamañoIconos);
+}
+
+
+.iconoFacebook:hover {
+    transform: rotateY(360deg);
+    transition: transform 0.8s ease;
+}
+
+.iconoFacebook:hover .cls-1 {
+    fill: #094f7a;
+}
+
+.iconoX:hover {
+    transform: rotateY(360deg);
+    transition: transform 0.8s ease;
+}
+
+.iconoX:hover .cls-1 {
+    fill: black;
+}
+
+.iconoInstagram:hover {
+    transform: rotateY(360deg);
+    transition: transform 0.8s ease;
+}
+
+.iconoInstagram:hover .cls-1 {
+    fill: rgb(197, 10, 202);
+}
+
+.iconoYoutube:hover {
+    transform: rotateY(360deg);
+    transition: transform 0.8s ease;
+}
+
+.iconoYoutube:hover .cls-2 {
+    fill: white;
+}
+
+.iconoYoutube:hover .cls-1 {
+    fill: #f00028;
+}
+
+/* .fSeccion2 */
+.fSeccion2 {
+    grid-area: fSeccion2;
+}
+
+.fSeccion2__direccion {
+    margin: 2rem 0;
+}
+
+/* .fSeccion3 */
+.fSeccion3 {
+    grid-area: fSeccion3;
+}
+
+#fSeccion3__titulo {
+    display: block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.universidadEnlace__logoUAM {
+    display: none;
+}
+
+/* .fSeccion3Contenido{
+    gap: 0;
+} */
+
+.fSeccion3_universidadUnidades {
+    margin-top: 3rem;
+    grid-area: fSeccion3_universidadUnidades;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* padding: 1rem; */
+    align-items: start;
+    font-size: 1em;
+}
+
+.universidadEnlace {
+    display: flex;
+}
+
+@media (max-width: 560px) {
+
+    /* .fSeccionTitulo{
+        margin: auto;
+    } */
+
+    .fSeccion2__direccion,
+    .fSeccion1__direccion {
+        margin: 3rem 0;
+
+    }
+
+    #deplegableUnidadesUAM {
+        cursor: pointer;
+        margin: auto 0;
+    }
+
+    .unidadesFlecha path {
+        fill: var(--colorAZC);
+    }
+
+    .rotarFlecha svg {
+        transform: rotate(180deg);
+        transition: transform 0.5s ease;
+    }
+
+    .fSeccion3__titulo svg {
+        transition: transform .5s ease-in-out;
+    }
+
+    .ocultarUnidadesUAM {
+        opacity: 0;
+        transform: scaleY(1.4);
+        height: 0;
+        overflow: hidden;
+        transition: opacity 0.5s ease, transform 1s ease, height 1s ease;
+    }
+
+    .mostrarUnidadesUAM {
+        opacity: 1;
+        transform: scaleY(1);
+        height: auto;
+        transition: opacity 0.5s ease, transform .7s ease, height 0.7s ease;
+    }
+
+    .fSeccion3__titulo {
+        display: block;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .fSeccion3__titulo:hover {
+        cursor: help;
+    }
+
+    .fSeccion3_universidadUnidades {
+        margin-top: 0;
+        align-items: center;
+    }
+
+    .fSeccion3_universidadUnidades {
+        gap: 1rem;
+    }
+
+    .universidadEnlace,
+    .fSeccion3_universidadUnidades a {
+        width: 100%;
+        text-align: center;
+    }
+
+
+}
+
+@media (min-width: 561px) and (max-width: 960px) {
+    .fSeccion3__titulo {
+        display: none;
+        visibility: hidden;
+    }
+
+    .fSeccion3 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .fSeccion3_universidadUnidades {
+        flex-direction: row;
+        justify-content: center;
+        align-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .fSeccion3_universidadUnidades p {
+        width: 16rem;
+        text-align: center;
+    }
+
+    .universidadEnlace__logoUAM {
+        display: flex;
+    }
+
+    .universidadEnlace__logoUAM .cls-1 {
+        fill: white;
+    }
+
+    .universidadEnlace a {
+        display: flex;
+        row-gap: .2rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .universidadEnlace:hover .cls-1 {
+        animation: moverLado 0.9s ease;
+    }
+
+    .universidadEnlace__logoUAM {
+        width: 10rem;
+    }
+
+    .logoUAMazc {
+        fill: var(--colorAZC);
+    }
+
+    .logoUAMcuaji {
+        fill: var(--colorCUAJI);
+    }
+
+    .logoUAMizta {
+        fill: var(--colorIZT);
+    }
+
+    .logoUAMlerma {
+        fill: var(--colorLER);
+    }
+
+    .logoUAMxochi {
+        fill: var(--colorXOC);
+    }
+}
+
+@keyframes moverLado {
+    0% {
+        transform: translateX(100rem);
+        /* Posición inicial */
+    }
+
+    50% {
+        transform: translateX(0rem);
+        /* Mover hacia la derecha */
+    }
+
+    75% {
+        transform: translateX(-100rem);
+        /* Regresar a la posición original */
+    }
+
+    100% {
+        transform: translateX(0rem);
+        /* Regresar a la posición original */
+    }
+}
+
+@media (min-width: 960px) {
+    .universidadEnlace a p:hover {
+        padding: .5rem 1rem;
+    }
+}
+
+@media (max-width: 960px) {
+    .fSeccion3_universidadUnidades p {
+        color: white !important;
+        border-radius: 1rem;
+    }
+
+    #ligaAZC {
+        background-color: var(--colorAZC);
+    }
+
+    #ligaCUAJI {
+        background-color: var(--colorCUAJI);
+    }
+
+    #ligaIZT {
+        background-color: var(--colorIZT);
+    }
+
+    #ligaLER {
+        background-color: var(--colorLER);
+    }
+
+    #ligaXOC {
+        background-color: var(--colorXOC);
+    }
+
+    #ligaRECTORIA {
+        background-color: var(--colorREC);
+    }
+}
+
+.fSeccion3_universidadUnidades p {
+    padding: .5rem 0rem;
+    /***************************************************/
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.fSeccion3_universidadUnidades p:hover {
+    border-radius: 1rem;
+    /* color: white; */
+}
+
+
+#ligaAZC {
+    color: rgb(227, 55, 68);
+}
+
+#ligaCUAJI {
+    color: rgb(240, 130, 0);
+}
+
+#ligaIZT {
+    color: rgb(87, 165, 25);
+}
+
+#ligaLER {
+    color: rgb(173, 37, 168);
+}
+
+#ligaXOC {
+    color: rgb(0, 114, 206);
+}
+
+#ligaRECTORIA {
+    color: black;
+}
+
+
+.universidadEnlaceAzc:hover #ligaAZC {
+    color: white;
+    background-color: rgb(206, 44, 54);
+    box-shadow: 0px 4px 8px rgba(190, 45, 55, 0.9);
+    border: 1px solid rgba(255, 85, 98, 0.7);
+    font-size: 1.05em;
+}
+
+.universidadEnlaceCuaji:hover #ligaCUAJI {
+    color: white;
+    background-color: rgb(230, 131, 11);
+    box-shadow: 0px 4px 8px rgba(200, 110, 0, 0.9);
+    border: 1px solid rgba(255, 160, 30, 0.7);
+    font-size: 1.05em;
+}
+
+.universidadEnlaceIzta:hover #ligaIZT {
+    color: white;
+    background-color: rgb(67, 145, 15);
+    box-shadow: 0px 4px 8px rgba(67, 145, 15, 0.9);
+    border: 1px solid rgba(117, 195, 55, 0.7);
+    font-size: 1.05em;
+}
+
+.universidadEnlaceLerma:hover #ligaLER {
+    color: white;
+    background-color: rgb(153, 17, 148);
+    box-shadow: 0px 4px 8px rgba(153, 17, 148, 0.9);
+    border: 1px solid rgba(203, 67, 198, 0.7);
+    font-size: 1.05em;
+}
+
+.universidadEnlaceXochi:hover #ligaXOC {
+    color: white;
+    background-color: rgb(0, 94, 186);
+    box-shadow: 0px 4px 8px rgba(0, 94, 186, 0.9);
+    border: 1px solid rgba(30, 144, 236, 0.7);
+    font-size: 1.05em;
+}
+
+
+
+.universidadEnlaceRectoria:hover #ligaRECTORIA {
+    color: white;
+    background-color: #000000;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.9);
+    border: 1px solid rgba(51, 51, 51, 0.7);
+    font-size: 1.05em;
+}
+
+@media (min-width: 961px) {
+    .recomendacionesEnlace {
+        flex-direction: column;
+    }
+    .recomendacionesEnlace a p {
+        width: 100%;
+        padding: 0 0 2rem 0;
+    }
+}
+
+.fSeccion4 {
+    grid-area: fSeccion4;
+}
+
+.fSeccion4Contenido.fSeccionContenido {
+    justify-content: start;
+}
+
+.espacioRecomendaciones {
+    height: 3rem;
+}
+
+.recomendacionesEnlace {
+    display: flex;
+    margin-top: 3rem;
+    justify-content: space-evenly;
+    align-items: start;
+    font-size: 1em;
+}
+
+.recomendacionesEnlace a {
+    color: #000000;
+    font-weight: 600;
+    font-size: 1.6rem;
+}
+
+.recomendacionesEnlace a p {
+    color: #000000e1;
+}
+
+.recomendacionesEnlace a p:hover {
+    color: var(--colorAZC);
+    transform: scale(1.05);
+    transform-origin: left center;
+}
+
+.fSeccion5 {
+    grid-area: fSeccion5;
+    background-color: var(--gris);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.fSeccion5 p {
+    text-align: center;
+    color: white;
+    margin: 0 1rem;
+}
+
+.fSeccion5 p a {
+    text-decoration: none;
+    color: var(--grisClaro);
+}

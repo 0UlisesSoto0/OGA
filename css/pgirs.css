@@ -1,0 +1,106 @@
+.TituloP2{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+.TituloP2 h1{
+    font-family: sans-serif;
+    font-size: 3.5rem;
+    font-weight: 600;
+    width: 30%;
+}
+.TituloP2 .inline {
+    position: relative; /* Necesario para posicionar elementos internos */
+    width: 100%; /* Ajusta según lo necesario */
+    height: 50px; /* Define una altura para que se note el efecto */
+}
+
+.TituloP2 .inline::after {
+    content: ''; /* Crea una pseudo-línea */
+    position: absolute;
+    top: 170%; /* Posiciona al centro verticalmente */
+    left: 0;
+    width: 100%;
+    height: 5px; /* Grosor de la línea */
+    background-color: rgb(199, 19, 49); /* Color de la línea */
+    transform: translateY(-100%); /* Ajusta la posición exactamente en el medio */
+}
+
+.panelIRS__carrucel {
+    position: relative;
+    display: grid;
+    height: auto;
+}
+
+.EspacioV {
+    top: 0;
+    left: 0;
+    width: 30%;
+    height: 100%; /* Ajusta según necesites */
+    position: absolute;
+    background: linear-gradient(to right, rgba(255, 255, 255, 1) 75%, rgba(255, 255, 255, 0.05));
+    z-index: 1;
+}
+
+.Carrusel {
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+    background-color: white;
+    position: relative;
+}
+
+.carrusel-contenedor {
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    gap: 20px;
+    animation: mover 150s linear infinite;
+}
+
+/* Animación continua */
+@keyframes mover {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-1000%);
+    }
+}
+
+@media (max-width: 900px){
+    .Carrusel{
+        display: none;
+        height: auto;
+    }
+    .carrusel-contenedor{
+        animation: none;
+        display: none;
+    }
+    .EspacioV{
+        display: none;
+    }
+    .panelIRS__carrucel{
+        height: auto;
+    }
+}
+
+@media (max-width: 500px) {
+    .Carrusel{
+        display: none;
+        height: 0px;
+    }
+    .carrusel-contenedor{
+        display: none;
+    }
+    .panelIRS__carrucel{
+        height: 0px;
+    }
+}
+
+
+
+.carrusel-contenedor:hover {
+    animation-play-state: paused;
+}
+
