@@ -251,7 +251,6 @@ body {
         grid-template-areas: 'funcion funcion'
             'produccion historia';
         margin: 7rem 4rem 4rem 4rem;
-
     }
 
     .videoA {
@@ -275,7 +274,7 @@ body {
     .videoB iframe,
     .videoC iframe {
         width: 100%;
-        height: 100%; 
+        height: 100%;
         border-radius: 1rem;
     }
 }
@@ -287,6 +286,11 @@ body {
         margin: 4rem 2rem 4rem 2rem;
         grid-template-areas: 'funcion'
             'produccion' 'historia';
+    }
+
+    .videoA,
+    .videoB {
+        margin-bottom: 3rem;
     }
 
     .videoA,
@@ -398,12 +402,26 @@ body {
     padding: 0 1rem;
 }
 
+@media (min-width: 535px) {
+    .PTARcelular__titulo {
+        margin-bottom: 6rem;
+    }
+}
+
+
+@media (max-width: 534px) {
+    .PTARcelular__titulo {
+        margin-bottom: 12rem;
+        text-align: center;
+    }
+}
+
 .PTARcelular__titulo {
     min-height: 8rem;
-    margin-bottom: 6rem;
     margin-top: -5rem;
     position: relative;
 }
+
 
 .PTARcelular__titulo p {
     font-weight: 700;
@@ -411,10 +429,19 @@ body {
     color: var(--grisOscuro);
     position: absolute;
     top: 5rem;
-    left: 4rem;
     background-color: white;
     border-radius: 4rem;
     padding: 0 1rem;
+}
+
+@media (min-width: 920px) {
+    .PTARcelular__titulo p {
+        left: 4rem;
+    }
+}
+
+@media (max-width: 920px) {
+    .PTARcelular__titulo p {}
 }
 
 
@@ -821,8 +848,7 @@ body {
 .produccionAguaDesionizada__titulo {
     font-size: 2.4em;
     font-weight: 700;
-    margin-left: 4rem;
-    margin-top: 2.5rem;
+    margin-top: 2.5rem !important;
     color: var(--grisOscuro);
 }
 
@@ -830,19 +856,60 @@ body {
     color: var(--gris);
 }
 
-.produccionAguaDesionizada__contenido {
-    display: grid;
-    grid-template-columns: 49.5% 1% 49.5%;
-    margin: 4rem 0rem 4rem 0rem;
+@media (min-width: 920px) {
+    .produccionAguaDesionizada__contenido {
+        grid-template-columns: 49.5% 1% 49.5%;
+        margin: 4rem 0rem 4rem 0rem;
+    }
+
+    .produccionAguaDesionizada__titulo {
+        text-align: center;
+        margin-left: 4rem;
+    }
 }
 
+@media (min-width: 500px) and (max-width: 919px) {
+    .produccionAguaDesionizada__contenido {
+        grid-template-columns: 1fr;
+        margin: 4rem 0rem 4rem 0rem;
+    }
+
+    .produccionAguaDesionizada__titulo {
+        text-align: center;
+        margin: 0 4rem;
+    }
+}
+
+@media (max-width: 499px) {
+    .produccionAguaDesionizada__titulo {
+        text-align: center;
+        margin: 0 1rem;
+    }
+}
+
+.produccionAguaDesionizada__contenido {
+    display: grid;
+}
+
+@media (min-width: 380px) {
+    .contenido__solicitud {
+        margin: 0 6rem;
+    }
+}
+
+@media (max-width: 379px) {
+    .contenido__solicitud {
+        margin: 0 2rem;
+    }
+    .contenido__solicitudP{
+        text-align: justify;
+    }
+}
 
 .contenido__solicitud {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin: 0 6rem;
-
 }
 
 .contenido__solicitud p:first-child {
@@ -850,16 +917,24 @@ body {
     font-size: 1.2em;
 }
 
-
-.contenido__separacionVertical {
-    border-left: .2rem black solid;
-    margin: 1rem 0;
-
+@media (max-width: 919px) {
+    .contenido__solicitud p:first-child {
+        margin-top: 2rem;
+    }
 }
 
-.contenido__informacion {
-    margin: 0 6rem;
 
+@media (min-width: 920px) {
+    .contenido__separacionVertical {
+        border-left: .2rem black solid;
+        margin: 1rem 0;
+    }
+}
+
+@media (min-width: 380px) {
+    .contenido__informacion {
+        margin: 0 6rem;
+    }
 }
 
 .contenido__informacion p {
@@ -867,16 +942,43 @@ body {
     font-size: 1.2em;
 }
 
+@media (min-width: 590px) and (max-width: 920px) {
+    .contenido__informacionP {
+        margin-top: 4rem;
+        margin-left: 22rem;
+    }
+}
+
+@media (max-width: 589px) {
+    .contenido__informacionP {
+        margin-top: 4rem;
+    }
+}
+
 .contenido__informacion span {
     color: black;
     font-weight: 500;
+}
+
+@media (min-width: 920px) {
+    .contenido__solicitud button {
+        margin: auto;
+    }
+}
+
+@media (max-width: 919px) {
+    .contenido__solicitud button {
+        display: flex;
+        align-self: center;
+        justify-self: center;
+        margin: 6rem 0;
+    }
 }
 
 .contenido__solicitud button {
     background-color: rgb(57, 167, 223);
     border: none;
     color: var(--blanco);
-    margin: auto;
     padding: 1rem 2rem;
     width: 25rem;
     border-radius: .5rem;
@@ -892,11 +994,26 @@ body {
 }
 
 
+@media (min-width: 500px) and (max-width: 920px) {
+    .informaion__bidon {
+        grid-template-columns: repeat(2, 50%);
+    }
+}
+
+@media (max-width: 499px) {
+    .bidon__numeros {
+        grid-row: 1/2;
+        margin-top: 3rem;
+    }
+    .bidon__imagen{
+        margin-top: 3rem;
+    }
+}
 
 .informaion__bidon {
     display: grid;
-    grid-template-columns: repeat(2, 50%);
 }
+
 
 .bidon__imagen {
     display: flex;
@@ -905,10 +1022,21 @@ body {
     flex-direction: column;
 }
 
+/* @media (min-width: 380px) {
+    .bidon__imagen img {
+        max-width: 25rem;
+    }
+}
+
+@media (max-width: 379px) {
+    .bidon__imagen img {
+        max-width: 15rem;
+    }
+} */
+
 .bidon__imagen img {
     max-width: 25rem;
     margin-top: -4rem;
-
 }
 
 .bidon__imagen p {
@@ -962,18 +1090,31 @@ body {
     grid-template-columns: repeat(3, 1fr);
     column-gap: 3rem;
     row-gap: 3rem;
-    min-height: 90rem;
+    /* min-height: 90rem;  */
 }
 
-.tarjetas__logros {
+.gif{
+    width: 100%;
+    margin: auto;
+}
+
+
+.tarjetas__logros{
     border: white .15rem solid;
     border-radius: 2rem;
     background-image: linear-gradient(to right, rgba(226, 226, 226, 1) 0%, white 70%, white 100%);
     box-shadow: .1rem .1rem 1rem .1rem rgb(199, 198, 198);
+    padding: 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.tarjetas__logrosContenido {
     display: flex;
     justify-content: end;
     flex-direction: column;
-    padding: 2rem;
 }
 
 .logros__titulo {

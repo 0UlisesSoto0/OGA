@@ -1,70 +1,71 @@
-// FUNSIÓN PARA AVANZAR LOS NÚMEROS
+// FUNCIÓN PARA AVANZAR LOS NÚMEROS
 
-function crearObserver(contador, numFinal, duracion = 1000, desimal) {
-  let animando = false;
-  let contado = false;
-  let inicio = null;
+document.addEventListener("DOMContentLoaded", function () {
+  function crearObserver(contador, numFinal, duracion = 1000, desimal) {
+    let animando = false;
+    let contado = false;
+    let inicio = null;
 
-  function animarContador(timestamp) {
-    if (!inicio) inicio = timestamp;
-    const progreso = timestamp - inicio;
-    const valor = Math.min((progreso / duracion) * numFinal, numFinal);
-    if (desimal) {
-      contador.textContent = valor.toFixed(1);
-    } else {
-      contador.textContent = valor.toFixed(0);
+    function animarContador(timestamp) {
+      if (!inicio) inicio = timestamp;
+      const progreso = timestamp - inicio;
+      const valor = Math.min((progreso / duracion) * numFinal, numFinal);
+      if (desimal) {
+        contador.textContent = valor.toFixed(1);
+      } else {
+        contador.textContent = valor.toFixed(0);
+      }
+
+      if (valor < numFinal) {
+        requestAnimationFrame(animarContador);
+      } else {
+        animando = false;
+        contado = true;
+      }
     }
 
-    if (valor < numFinal) {
-      requestAnimationFrame(animarContador);
-    } else {
-      animando = false;
-      contado = true;
-    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !animando && !contado) {
+          animando = true;
+          inicio = null;
+          requestAnimationFrame(animarContador);
+        } else if (!entry.isIntersecting) {
+          contador.textContent = '0';
+          contado = false;
+          animando = false;
+          inicio = null;
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    return observer;
   }
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !animando && !contado) {
-        animando = true;
-        inicio = null;
-        requestAnimationFrame(animarContador);
-      } else if (!entry.isIntersecting) {
-        contador.textContent = '0';
-        contado = false;
-        animando = false;
-        inicio = null;
-      }
-    });
-  }, {
-    threshold: 0.6
-  });
+  const contadorBidon = document.querySelector('.numeros__contador');
+  const seccionBidon = document.querySelector('.contenido__informacion');
+  const titulo__1 = document.querySelector('.titulo__1');
+  const titulo__2 = document.querySelector('.titulo__2');
+  const titulo__3 = document.querySelector('.titulo__3');
+  const titulo__4 = document.querySelector('.titulo__4');
 
-  return observer;
-}
+  const observer0 = crearObserver(contadorBidon, 492.5, 1000, true);
+  observer0.observe(seccionBidon);
 
-const contadorBidon = document.querySelector('.numeros__contador');
-const seccionBidon = document.querySelector('.contenido__informacion');
-const titulo__1 = document.querySelector('.titulo__1');
-const titulo__2 = document.querySelector('.titulo__2');
-const titulo__3 = document.querySelector('.titulo__3');
-const titulo__4 = document.querySelector('.titulo__4');
+  const observer1 = crearObserver(titulo__1, 20, 1000, false);
+  observer1.observe(titulo__1);
 
-const observer0 = crearObserver(contadorBidon, 492.5, 1000, true);
-observer0.observe(seccionBidon);
+  const observer2 = crearObserver(titulo__2, 1260, 1000, false);
+  observer2.observe(titulo__2);
 
-const observer1 = crearObserver(titulo__1, 20, 1000, false);
-observer1.observe(titulo__1);
+  const observer3 = crearObserver(titulo__3, 1080, 1000, false);
+  observer3.observe(titulo__3);
 
-const observer2 = crearObserver(titulo__2, 1260, 1000, false);
-observer2.observe(titulo__2);
-
-const observer3 = crearObserver(titulo__3, 1080, 1000, false);
-observer3.observe(titulo__3);
-
-const observer4 = crearObserver(titulo__4, 1080, 1000, false);
-observer4.observe(titulo__4);
-
+  const observer4 = crearObserver(titulo__4, 1080, 1000, false);
+  observer4.observe(titulo__4);
+});
 
 // CONTROL DE LOS VIDEOS DE YOUTUBE
 
@@ -125,7 +126,7 @@ function onPlayerStateChange(event) {
   }
 }
 
-// FUNSIÓN PARA COLOCAR EL VIDEO SELECCIONADO EN EL ESPACIO PRINCIPAL
+// FUNCIÓN PARA COLOCAR EL VIDEO SELECCIONADO EN EL ESPACIO PRINCIPAL
 
 function acomodarVideos() {
   const videos__comoFunciona = document.querySelector('.videos__comoFunciona');
@@ -197,27 +198,166 @@ function acomodarVideos() {
 
 // TARJETAS EN MODO CELULARA PARA PTAR
 
-document.addEventListener("DOMContentLoaded", () => {
-    const tarjetas = document.querySelectorAll('.PTARcelular__tarjetas .PTARcelular__tarjeta');
-    const prevBtn = document.querySelector('.PTARcelular__prevBtn');
-    const nextBtn = document.querySelector('.PTARcelular__nextBtn');
-    let currentIndex = 0;
+document.addEventListener("DOMContentLoaded", function () {
+  const tarjetas = document.querySelectorAll('.PTARcelular__tarjetas .PTARcelular__tarjeta');
+  const prevBtn = document.querySelector('.PTARcelular__prevBtn');
+  const nextBtn = document.querySelector('.PTARcelular__nextBtn');
+  let currentIndex = 0;
 
-    function mostrarTarjetaCelular(index) {
-      tarjetas.forEach((tarjeta, i) => {
-        tarjeta.style.display = i === index ? 'grid' : 'none';
-      });
-    }
+  function mostrarTarjetaCelular(index) {
+    tarjetas.forEach((tarjeta, i) => {
+      tarjeta.style.display = i === index ? 'grid' : 'none';
+    });
+  }
 
+  mostrarTarjetaCelular(currentIndex);
+
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % tarjetas.length;
     mostrarTarjetaCelular(currentIndex);
+  });
 
-    nextBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % tarjetas.length;
-      mostrarTarjetaCelular(currentIndex);
-    });
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + tarjetas.length) % tarjetas.length;
+    mostrarTarjetaCelular(currentIndex);
+  });
+});
 
-    prevBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + tarjetas.length) % tarjetas.length;
-      mostrarTarjetaCelular(currentIndex);
-    });
+
+// FUNCIÓN PARA ANIMAR GIFS
+
+// document.addEventListener("DOMContentLoaded", function () {
+//   // Función para controlar los GIFs
+//   function crearGifObserver(gifElement, staticImagePath) {
+//     let hasPlayed = false;
+//     let originalSrc = gifElement.src;
+    
+//     const observer = new IntersectionObserver((entries) => {
+//       entries.forEach(entry => {
+//         if (entry.isIntersecting && !hasPlayed) {
+//           // Reiniciamos el GIF para que se reproduzca
+//           gifElement.src = '';
+//           gifElement.src = originalSrc;
+//           hasPlayed = true;
+          
+//           // Esperamos un tiempo razonable para que el GIF se reproduzca
+//           // y luego lo pausamos en el último frame
+//           setTimeout(() => {
+//             if (staticImagePath) {
+//               gifElement.src = staticImagePath;
+//             }
+//           }, 2000); // Ajusta este tiempo según la duración de tu GIF
+//         } else if (!entry.isIntersecting) {
+//           // Reset para que pueda reproducirse de nuevo cuando sea visible
+//           hasPlayed = false;
+//           if (staticImagePath) {
+//             gifElement.src = staticImagePath;
+//           } else {
+//             gifElement.src = originalSrc;
+//           }
+//         }
+//       });
+//     }, {
+//       threshold: 0.1
+//     });
+
+//     return observer;
+//   }
+
+//   // Configuración para cada GIF
+//   const gifTrofeo = document.getElementById('gifTrofeo');
+//   const gifTubo = document.getElementById('gifTubo');
+//   const gifLluvia = document.getElementById('gifLluvia');
+//   const gifGota = document.getElementById('gifGota');
+//   const gifPlanta = document.getElementById('gifPlanta');
+
+//   // Crea observadores para cada GIF (ajusta las rutas de las imágenes estáticas)
+//   const observerTrofeo = crearGifObserver(gifTrofeo, '../gifs/plantaTemporal.jpg');
+//   const observerTubo = crearGifObserver(gifTubo, '../gifs/plantaTemporal.jpg');
+//   const observerLluvia = crearGifObserver(gifLluvia, '../gifs/plantaTemporal.jpg');
+//   const observerGota = crearGifObserver(gifGota, '../gifs/plantaTemporal.jpg');
+//   const observerPlanta = crearGifObserver(gifPlanta,'../gifs/plantaTemporal.jpg');
+
+//   // Observa cada GIF
+//   observerTrofeo.observe(gifTrofeo);
+//   observerTubo.observe(gifTubo);
+//   observerLluvia.observe(gifLluvia);
+//   observerGota.observe(gifGota);
+//   observerPlanta.observe(gifPlanta);
+// });
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  // Configuración de cada GIF con su respectiva imagen estática
+  const configuracionGIFs = [
+    { 
+      id: 'gifTrofeo', 
+      gifSrc: '../gifs/20_Aniversario.gif',
+      staticSrc: '../gifs/plantaTemporal.jpg',
+      duration: 4000 // Duración aproximada del GIF en ms
+    },
+    { 
+      id: 'gifTubo', 
+      gifSrc: '../gifs/Sistema_Irrigacion.gif',
+      staticSrc: '../gifs/plantaTemporal.jpg',
+      duration: 2000
+    },
+    { 
+      id: 'gifLluvia', 
+      gifSrc: '../gifs/nube.gif',
+      staticSrc: '../gifs/plantaTemporal.jpg',
+      duration: 4500
+    },
+    { 
+      id: 'gifGota', 
+      gifSrc: '../gifs/agua_gotas.gif',
+      staticSrc: '../gifs/plantaTemporal.jpg',
+      duration: 4500
+    },
+    { 
+      id: 'gifPlanta', 
+      gifSrc: '../gifs/planta.gif',
+      staticSrc: '../gifs/plantaTemporal.jpg',
+      duration: 6000
+    },
+    
+  ];
+
+  configuracionGIFs.forEach(config => {
+    const elemento = document.getElementById(config.id);
+    if (!elemento) return;
+
+    // Estado para controlar si ya se mostró el GIF
+    let yaSeHaMostrado = false;
+    
+    // Guardar la fuente original (estática) que está en el HTML
+    const originalStaticSrc = elemento.src;
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (!yaSeHaMostrado) {
+            // Cambiar temporalmente al GIF, elimina el problema de cargar desde el cache
+            elemento.src = config.gifSrc + '?t=' + Date.now();
+            
+            // Después de la duración del GIF, cambiar a la imagen estática
+            setTimeout(() => {
+              elemento.src = config.staticSrc;
+              yaSeHaMostrado = true;
+            }, config.duration);
+          }
+        } else {
+          // Cuando el elemento sale de la vista, resetear para la próxima vez
+          yaSeHaMostrado = false;
+          elemento.src = originalStaticSrc;
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    observer.observe(elemento);
+    
+    // Inicializar con la imagen estática
+    elemento.src = originalStaticSrc;
+  });
 });
