@@ -301,25 +301,25 @@ document.addEventListener("DOMContentLoaded", function() {
       id: 'gifTubo', 
       gifSrc: '../gifs/Sistema_Irrigacion.gif',
       staticSrc: '../gifs/plantaTemporal.jpg',
-      duration: 2000
+      duration: 4000
     },
     { 
       id: 'gifLluvia', 
       gifSrc: '../gifs/nube.gif',
       staticSrc: '../gifs/plantaTemporal.jpg',
-      duration: 4500
+      duration: 4000
     },
     { 
       id: 'gifGota', 
       gifSrc: '../gifs/agua_gotas.gif',
       staticSrc: '../gifs/plantaTemporal.jpg',
-      duration: 4500
+      duration: 4000
     },
     { 
       id: 'gifPlanta', 
       gifSrc: '../gifs/planta.gif',
       staticSrc: '../gifs/plantaTemporal.jpg',
-      duration: 6000
+      duration: 4000
     },
     
   ];
@@ -353,7 +353,7 @@ document.addEventListener("DOMContentLoaded", function() {
           elemento.src = originalStaticSrc;
         }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    }, { threshold: 0.4, rootMargin: '0px 0px -50px 0px' });
 
     observer.observe(elemento);
     
