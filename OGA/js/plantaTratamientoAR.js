@@ -69,6 +69,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // CONTROL DE LOS VIDEOS DE YOUTUBE
 
+
+
 let players = [];
 let videoActivo = null;
 let esVideoPrincipal = false;
@@ -196,6 +198,36 @@ function acomodarVideos() {
   }
 }
 
+// Para activar los videos con su título
+
+// if (window.innerWidth < 730) {
+//   var tag = document.createElement('script');
+//   tag.src = "https://www.youtube.com/iframe_api";
+//   var firstScriptTag = document.getElementsByTagName('script')[0];
+//   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+//   var player1, player2, player3;
+
+//   function onYouTubeIframeAPIReady() {
+//     player1 = new YT.Player('video1');
+//     player2 = new YT.Player('video2');
+//     player3 = new YT.Player('video3');
+//   }
+
+//   // 4. Funciones para cada botón
+//   function iniciarVideoA() {
+//     player1.playVideo();
+//   }
+
+//   function iniciarVideoB() {
+//     player2.playVideo();
+//   }
+
+//   function iniciarVideoC() {
+//     player3.playVideo();
+//   }
+// }
+
 // TARJETAS EN MODO CELULARA PARA PTAR
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -226,102 +258,40 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // FUNCIÓN PARA ANIMAR GIFS
 
-// document.addEventListener("DOMContentLoaded", function () {
-//   // Función para controlar los GIFs
-//   function crearGifObserver(gifElement, staticImagePath) {
-//     let hasPlayed = false;
-//     let originalSrc = gifElement.src;
-    
-//     const observer = new IntersectionObserver((entries) => {
-//       entries.forEach(entry => {
-//         if (entry.isIntersecting && !hasPlayed) {
-//           // Reiniciamos el GIF para que se reproduzca
-//           gifElement.src = '';
-//           gifElement.src = originalSrc;
-//           hasPlayed = true;
-          
-//           // Esperamos un tiempo razonable para que el GIF se reproduzca
-//           // y luego lo pausamos en el último frame
-//           setTimeout(() => {
-//             if (staticImagePath) {
-//               gifElement.src = staticImagePath;
-//             }
-//           }, 2000); // Ajusta este tiempo según la duración de tu GIF
-//         } else if (!entry.isIntersecting) {
-//           // Reset para que pueda reproducirse de nuevo cuando sea visible
-//           hasPlayed = false;
-//           if (staticImagePath) {
-//             gifElement.src = staticImagePath;
-//           } else {
-//             gifElement.src = originalSrc;
-//           }
-//         }
-//       });
-//     }, {
-//       threshold: 0.1
-//     });
-
-//     return observer;
-//   }
-
-//   // Configuración para cada GIF
-//   const gifTrofeo = document.getElementById('gifTrofeo');
-//   const gifTubo = document.getElementById('gifTubo');
-//   const gifLluvia = document.getElementById('gifLluvia');
-//   const gifGota = document.getElementById('gifGota');
-//   const gifPlanta = document.getElementById('gifPlanta');
-
-//   // Crea observadores para cada GIF (ajusta las rutas de las imágenes estáticas)
-//   const observerTrofeo = crearGifObserver(gifTrofeo, '../gifs/plantaTemporal.jpg');
-//   const observerTubo = crearGifObserver(gifTubo, '../gifs/plantaTemporal.jpg');
-//   const observerLluvia = crearGifObserver(gifLluvia, '../gifs/plantaTemporal.jpg');
-//   const observerGota = crearGifObserver(gifGota, '../gifs/plantaTemporal.jpg');
-//   const observerPlanta = crearGifObserver(gifPlanta,'../gifs/plantaTemporal.jpg');
-
-//   // Observa cada GIF
-//   observerTrofeo.observe(gifTrofeo);
-//   observerTubo.observe(gifTubo);
-//   observerLluvia.observe(gifLluvia);
-//   observerGota.observe(gifGota);
-//   observerPlanta.observe(gifPlanta);
-// });
-
-
-
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   // Configuración de cada GIF con su respectiva imagen estática
   const configuracionGIFs = [
-    { 
-      id: 'gifTrofeo', 
+    {
+      id: 'gifTrofeo',
       gifSrc: '../gifs/20_Aniversario.gif',
       staticSrc: '../gifs/plantaTemporal.jpg',
       duration: 4000 // Duración aproximada del GIF en ms
     },
-    { 
-      id: 'gifTubo', 
+    {
+      id: 'gifTubo',
       gifSrc: '../gifs/Sistema_Irrigacion.gif',
-      staticSrc: '../gifs/plantaTemporal.jpg',
-      duration: 4000
+      staticSrc: '../gifs/Sistema_Irrigacion_psd.png',
+      duration: 1600
     },
-    { 
-      id: 'gifLluvia', 
+    {
+      id: 'gifLluvia',
       gifSrc: '../gifs/nube.gif',
       staticSrc: '../gifs/plantaTemporal.jpg',
       duration: 4000
     },
-    { 
-      id: 'gifGota', 
+    {
+      id: 'gifGota',
       gifSrc: '../gifs/agua_gotas.gif',
       staticSrc: '../gifs/plantaTemporal.jpg',
       duration: 4000
     },
-    { 
-      id: 'gifPlanta', 
+    {
+      id: 'gifPlanta',
       gifSrc: '../gifs/planta.gif',
       staticSrc: '../gifs/plantaTemporal.jpg',
       duration: 4000
     },
-    
+
   ];
 
   configuracionGIFs.forEach(config => {
@@ -330,17 +300,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Estado para controlar si ya se mostró el GIF
     let yaSeHaMostrado = false;
-    
+
     // Guardar la fuente original (estática) que está en el HTML
     const originalStaticSrc = elemento.src;
-    
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           if (!yaSeHaMostrado) {
             // Cambiar temporalmente al GIF, elimina el problema de cargar desde el cache
             elemento.src = config.gifSrc + '?t=' + Date.now();
-            
+
             // Después de la duración del GIF, cambiar a la imagen estática
             setTimeout(() => {
               elemento.src = config.staticSrc;
@@ -353,11 +323,88 @@ document.addEventListener("DOMContentLoaded", function() {
           elemento.src = originalStaticSrc;
         }
       });
-    }, { threshold: 0.4, rootMargin: '0px 0px -50px 0px' });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
     observer.observe(elemento);
-    
+
     // Inicializar con la imagen estática
     elemento.src = originalStaticSrc;
+  });
+});
+
+
+// FUNCION PARA OBSERVAR LOS EFECTOS DE IMAGENES Y TEXTOS
+
+document.addEventListener("DOMContentLoaded", () => {
+  /**
+   * Configuración centralizada de animaciones
+   * @type {Object.<string, {class: string, resetOnExit: boolean, threshold: number, rootMargin: string}>}
+   */
+  const animationsConfig = {
+    focusIn: {
+      class: 'focus-in-contract-bck',
+      resetOnExit: true, // Reinicia al salir del viewport
+      threshold: 0.2,
+      rootMargin: '0px 0px -50px 0px'
+    },
+    kenBurns: {
+      class: 'kenburns-top-left',
+      resetOnExit: false, // No reinicia (animación continua)
+      threshold: 0.1,
+    },
+    focusExpand: {
+      class: 'focus-in-expand-fwd',
+      resetOnExit: true, // Recomendado para esta animación
+      threshold: 0.2,
+      rootMargin: '0px 0px -20px 0px'
+    },
+    focusContract: {
+      class: 'focus-in-contract',
+      resetOnExit: true, // Recomendado para esta animación
+      threshold: 0.15,
+      rootMargin: '0px 0px -15% 0px',
+      delay: 150 // Opcional: retardo antes de activar
+    },
+  };
+
+  function setupAnimationObserver(animationName) {
+    const config = animationsConfig[animationName];
+    if (!config) return;
+
+    const elements = document.querySelectorAll(`.${config.class}`);
+    if (elements.length === 0) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        // En la función setupAnimationObserver, modifica el bloque entry.isIntersecting:
+        if (entry.isIntersecting) {
+          // Fuerza el reinicio de la animación
+          entry.target.style.animation = 'none';
+          void entry.target.offsetWidth; // Trigger reflow
+          entry.target.style.animation = '';
+
+          entry.target.classList.add(`${config.class}-active`);
+
+          if (config.resetOnExit) {
+            entry.target.addEventListener('animationend', () => {
+              entry.target.classList.remove(`${config.class}-active`);
+            }, { once: true });
+          }
+        } else if (config.resetOnExit) {
+          // Reinicia para futuras visualizaciones
+          entry.target.classList.remove(`${config.class}-active`);
+        }
+      });
+    }, {
+      threshold: config.threshold,
+      rootMargin: config.rootMargin || '0px'
+    });
+
+    elements.forEach(el => observer.observe(el));
+  }
+
+  // Inicializa todas las animaciones configuradas
+  Object.keys(animationsConfig).forEach(animationName => {
+    setupAnimationObserver(animationName);
   });
 });

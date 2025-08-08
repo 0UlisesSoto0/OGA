@@ -284,13 +284,13 @@
         <div id="desplegableDd3"></div>
 
         <section class="imagenPrincipal">
-            <img src="../images/plantaTratamientoAR/PTAR_INTERIOR_EST.jpg"
+            <img class="kenburns-top-left" src="../images/plantaTratamientoAR/PTAR_INTERIOR_EST.jpg"
                 alt="Imagen del interior de la planta de tratamiento de aguas residuales.">
         </section>
 
         <section class="presentacionYContacto">
             <div class="presentacionYContacto__imagen">
-                <img src="../images/plantaTratamientoAR/PTAR_EXTERIOR.jpg"
+                <img class="kenburns-top-left" src="../images/plantaTratamientoAR/PTAR_EXTERIOR.jpg"
                     alt="Imagen del exterior de la planta de tratamiento de aguas residuales.">
             </div>
             <div class="presentacionYContacto__contacto contactoTAR">
@@ -539,7 +539,7 @@
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <p>¿Cómo funciona la PTAR?</p>
+                <p class="iniciarVideoA" onclick="iniciarVideoA()">¿Cómo funciona la PTAR?</p>
                 <div class="videos__separador"></div>
             </div>
 
@@ -548,7 +548,7 @@
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <p>¿Cómo se produce agua?</p>
+                <p class="iniciarVideoB" onclick="iniciarVideoB()">¿Cómo se produce agua?</p>
                 <div class="videos__separador"></div>
             </div>
 
@@ -557,7 +557,7 @@
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <p>Historia de la PTAR</p>
+                <p class="iniciarVideoC" onclick="iniciarVideoC()">Historia de la PTAR</p>
                 <div class="videos__separador"></div>
             </div>
         </section>
@@ -570,7 +570,7 @@
                 <div class="tarjetas__izquierda tarjetas__1">
                     <img src="../images/plantaTratamientoAR/ardilla-lee.jpg" alt="#">
                     <div class="informacion__izquierda">
-                        <p class="informacion__titulo">Apoyar</p>
+                        <p class="informacion__titulo focus-in-contract-bck">Apoyar</p>
                         <p class="informacion__texto">
                             A la Docencia e
                             Investigación para
@@ -584,7 +584,7 @@
                 <div class="tarjetas__izquierda tarjetas__2">
                     <img src="../images/plantaTratamientoAR/ardilla.webp" alt="#">
                     <div class="informacion__izquierda">
-                        <p class="informacion__titulo">Demostrar</p>
+                        <p class="informacion__titulo focus-in-expand-fwd">Demostrar</p>
                         <p class="informacion__texto">
                             Las alternativas de
                             tratamiento del agua
@@ -595,7 +595,7 @@
                 <div class="tarjetas__derecha tarjetas__3">
                     <img src="../images/plantaTratamientoAR/bellota-imposible.jpg" alt="#">
                     <div class="informacion__derecha">
-                        <p class="informacion__titulo">Producir</p>
+                        <p class="informacion__titulo focus-in-contract">Producir</p>
                         <p class="informacion__texto">
                             Agua desionizada Tipo II
                             para laboratorios de
@@ -642,7 +642,7 @@
                 <div class="PTARcelular__tarjeta tarjetasCelular__1">
                     <img src="../images/plantaTratamientoAR/ardilla-lee.jpg" alt="#">
                     <div class="informacionCelular">
-                        <p class="informacionCelular__titulo">Apoyar</p>
+                        <p class="informacionCelular__titulo focus-in-contract-bck">Apoyar</p>
                         <p class="informacionCelular__texto">
                             A la Docencia e
                             Investigación para
@@ -656,7 +656,7 @@
                 <div class="PTARcelular__tarjeta tarjetasCelular__2">
                     <img src="../images/plantaTratamientoAR/ardilla.webp" alt="#">
                     <div class="informacionCelular">
-                        <p class="informacionCelular__titulo">Demostrar</p>
+                        <p class="informacionCelular__titulo focus-in-contract">Demostrar</p>
                         <p class="informacionCelular__texto">
                             Las alternativas de
                             tratamiento del agua
@@ -667,7 +667,7 @@
                 <div class="PTARcelular__tarjeta tarjetasCelular__3">
                     <img src="../images/plantaTratamientoAR/bellota-imposible.jpg" alt="#">
                     <div class="informacionCelular">
-                        <p class="informacionCelular__titulo">Producir</p>
+                        <p class="informacionCelular__titulo focus-in-contract">Producir</p>
                         <p class="informacionCelular__texto">
                             Agua desionizada Tipo II
                             para laboratorios de
@@ -705,6 +705,7 @@
                 </div>
             </div>
         </section>
+        <div class="sombra1"></div>
 
         <section class="produccionAguaDesionizada">
             <div class="produccionAguaDesionizada__titulo">
@@ -714,8 +715,9 @@
                 <div class="contenido__solicitud">
                     <p>La PTAR, desde el 2010 incorporó el servicio
                         de “Suministro de Agua Desionizada”.</p>
-                    <button>Solicitud de agua
-                        desionizada</button>
+                    <a href="solicitudad.html" target="_blank">
+                        <button>Solicitud de agua desionizada</button>
+                    </a>
                     <p class="contenido__solicitudP">Donde sigue los lineamientos de la ASTM D1193-06,
                         Sociedad Americana de Pruebas y Materiales,
                         especificaciones estándar para el agua de calidad
@@ -723,7 +725,8 @@
                 </div>
                 <div class="contenido__separacionVertical"></div>
                 <div class="contenido__informacion">
-                    <p class="contenido__informacionP">Tan solo en el 2024, la PTAR dispuso de <span> 9.85 m<sup>3</sup></span> de agua desionizada
+                    <p class="contenido__informacionP">Tan solo en el 2024, la PTAR dispuso de <span> 9.85
+                            m<sup>3</sup></span> de agua desionizada
                         equivalente a:</p>
                     <div class="informaion__bidon">
                         <div class="bidon__imagen">
@@ -739,6 +742,8 @@
                 </div>
             </div>
         </section>
+        <div class="sombra2"></div>
+
 
         <section class="duracion">
             <p class="duracion__titulo">
@@ -770,7 +775,7 @@
 
                     <div class="tarjetas__logrosContenido">
                         <p class="logros__titulo">
-    
+
                         </p>
                         <div class="logros__separacion"></div>
                         <p class="logros__texto">
@@ -778,7 +783,7 @@
                             de Irrigación del Campo
                             de Fútbol con agua
                             tratada de la PTAR
-                        </p>                        
+                        </p>
                     </div>
                 </div>
 
@@ -795,8 +800,8 @@
                         <p class="logros__texto">
                             Cosecha de agua de
                             lluvia
-                        </p>                        
-                    </div>                    
+                        </p>
+                    </div>
                 </div>
 
 
@@ -813,8 +818,8 @@
                             Recuperados de agua
                             remanente proveniente
                             del lavado de cisternas
-                        </p>                        
-                    </div>                    
+                        </p>
+                    </div>
                 </div>
 
                 <div class="tarjetas__logros gifPlanta">
@@ -828,7 +833,7 @@
                         <div class="logros__separacion"></div>
                         <p class="logros__texto">
                             Agua tratada para riego
-                        </p>                        
+                        </p>
                     </div>
                 </div>
             </div><!-- .duracion__tarjetas -->

@@ -32,6 +32,34 @@ body {
     display: block;
 }
 
+/* ANIMACIÓN PARA IMAGENES */
+
+/* Estado base - necesario para la transición */
+.kenburns-top-left {
+    transform-origin: 16% 16%;
+    transform: scale(1) translate(0, 0);
+    will-change: transform;
+    /* Optimización de rendimiento */
+}
+
+/* Estado activo - aplica la animación */
+.kenburns-top-left-active {
+    animation: kenburns-top-left 5s ease-out forwards;
+}
+
+@keyframes kenburns-top-left {
+    0% {
+        transform: scale(1) translate(0, 0);
+        transform-origin: 16% 16%;
+    }
+
+    100% {
+        transform: scale(1.25) translate(-20px, -15px);
+        transform-origin: top left;
+    }
+}
+
+
 @media (min-width: 961px) {
     .imagenPrincipal img {
         border-radius: 4rem 4rem 0 0;
@@ -334,6 +362,16 @@ body {
     pointer-events: none;
 }
 
+
+
+
+/* .iniciarVideoA,
+.iniciarVideoB,
+.iniciarVideoC{
+    cursor: pointer;
+} */
+
+
 .videoA {
     grid-area: funcion;
     transition: opacity 1.5s ease-in-out;
@@ -494,6 +532,8 @@ body {
     text-transform: uppercase;
     font-weight: 700;
     color: var(--grisOscuro);
+    text-transform: uppercase;
+
 }
 
 .informacion__texto {
@@ -682,9 +722,16 @@ body {
     justify-content: center;
 }
 
-@media (min-width: 500px) {
+.informacionCelular__titulo {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--grisOscuro);
+}
+
+
+@media (min-width: 320px) and (max-width: 428px) {
     .informacionCelular__titulo {
-        font-size: 1.5em;
+        font-size: 1.1em;
     }
 }
 
@@ -694,17 +741,133 @@ body {
     }
 }
 
-@media (min-width: 320px) and (max-width: 428px) {
+@media (min-width: 500px) {
     .informacionCelular__titulo {
-        font-size: 1.1em;
+        font-size: 1.5em;
     }
 }
 
-.informacionCelular__titulo {
-    text-transform: uppercase;
-    font-weight: 700;
-    color: var(--grisOscuro);
+/* ANIMACIÓN TEXTO */
+
+/* Estado INICIAL (requerido para la animación) */
+.focus-in-contract-bck {
+    opacity: 1;
+    display: inline-block;
+    /* Necesario para letter-spacing en elementos inline */
 }
+
+/* Estado ACTIVO (aquí va la animación) */
+.focus-in-contract-bck-active {
+    -webkit-animation: focus-in-contract-bck 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: focus-in-contract-bck 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+/* Keyframes (igual que los tuyos) */
+@-webkit-keyframes focus-in-contract-bck {
+    0% {
+        letter-spacing: 2em;
+        -webkit-transform: translateX(100px);
+        transform: translateX(100px);
+        -webkit-filter: blur(0px);
+        filter: blur(0px);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translateZ(12px);
+        transform: translateZ(12px);
+        -webkit-filter: blur(0);
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+@keyframes focus-in-contract-bck {
+    0% {
+        letter-spacing: 2em;
+        -webkit-transform: translateX(100px);
+        transform: translateX(100px);
+        -webkit-filter: blur(0px);
+        filter: blur(0px);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translateZ(12px);
+        transform: translateZ(12px);
+        -webkit-filter: blur(0);
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+
+/* ANIMACIÓN TEXTO DESDE ENMEDIO */
+
+.focus-in-expand-fwd {
+    opacity: 1;
+    display: inline-block;
+    will-change: transform, filter, opacity;
+}
+
+.focus-in-expand-fwd-active {
+    -webkit-animation: focus-in-expand-fwd 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+    animation: focus-in-expand-fwd 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+}
+
+@-webkit-keyframes focus-in-expand-fwd {
+    0% {
+        letter-spacing: -0.5em;
+        -webkit-transform: translateZ(-800px);
+        transform: translateZ(-800px);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        opacity: 1;
+    }
+}
+
+@keyframes focus-in-expand-fwd {
+    0% {
+        letter-spacing: -0.5em;
+        transform: translateZ(-800px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateZ(0);
+        opacity: 1;
+    }
+}
+
+
+/* Estado INICIAL - obligatorio */
+.focus-in-contract {
+    opacity: 1;
+    display: inline-block;
+    /* Necesario para letter-spacing */
+    will-change: opacity, letter-spacing;
+    /* Optimización */
+}
+
+/* Estado ACTIVO - contiene la animación */
+.focus-in-contract-active {
+    letter-spacing: 1em;
+    animation: focus-in-contract 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+}
+
+/* Keyframes (mejorados) */
+@keyframes focus-in-contract {
+    to {
+        letter-spacing: normal;
+        opacity: 1;
+    }
+}
+
+
 
 .informacionCelular__texto {
     color: var(--gris);
@@ -822,12 +985,29 @@ body {
 /* PRODUCCION DE AGUA DESIONIZADA */
 
 .produccionAguaDesionizada {
-    margin-top: 9rem;
-    margin-bottom: 4rem;
-    box-shadow: .4rem .4rem 3rem rgba(0, 0, 0, 0.507);
+    /* margin-top: 9rem; */
+    /* margin-bottom: 4rem; */
+    /* box-shadow: .4rem .4rem 3rem rgba(0, 0, 0, 0.507); */
+    margin-bottom: 2rem;
     position: relative;
     z-index: 1;
     overflow: hidden;
+}
+
+.sombra1 {
+    margin-top: 9rem;
+    box-shadow: 0rem -.3rem .7rem .1rem rgba(0, 0, 0, 0.507);
+    width: 100%;
+    height: 0rem;
+    background-color: rgb(223, 230, 230);
+}
+
+.sombra2 {
+    margin-bottom: 4rem;
+    box-shadow: 0rem .3rem .7rem .1rem rgba(0, 0, 0, 0.507);
+    width: 100%;
+    height: 0rem;
+    background-color: rgb(223, 230, 230);
 }
 
 .produccionAguaDesionizada::before {
@@ -992,6 +1172,12 @@ body {
 
 .contenido__solicitud button:active {
     background-color: rgb(15, 156, 226);
+}
+
+.contenido__solicitud a {
+    display: flex;
+    align-self: center;
+    justify-self: center;
 }
 
 
