@@ -47,22 +47,50 @@ function mostrarOcultarPanelEnlace(panelSeleccionado) {
     }
 }
 
+// function mostrarOcultarPanelTablet(panelSeleccionado) {
+//     const anchoVentana = window.innerWidth;
+//     if (anchoVentana >= 501 && anchoVentana <= 900) {
+//         const paneles = document.querySelectorAll('.panelTablet');
+//         paneles.forEach((panel) => {
+//             if (panelSeleccionado !== panel) {
+//                 panel.classList.add('ocultarPanelTablet');
+//                 panel.classList.remove('mostrarPanelTablet');
+//             }
+//         });
+//         panelSeleccionado.classList.toggle('ocultarPanelTablet');
+//         panelSeleccionado.classList.toggle('mostrarPanelTablet');    
+//     }
+// }
+
 function mostrarOcultarPanelTablet(panelSeleccionado) {
     const anchoVentana = window.innerWidth;
-
-    // Solo ejecuta la función si el ancho de la ventana está entre 501 y 900px
     if (anchoVentana >= 501 && anchoVentana <= 900) {
         const paneles = document.querySelectorAll('.panelTablet');
-
-        panelSeleccionado.classList.toggle('ocultarPanelTablet');
-        panelSeleccionado.classList.toggle('mostrarPanelTablet');
-
         paneles.forEach((panel) => {
             if (panelSeleccionado !== panel) {
                 panel.classList.add('ocultarPanelTablet');
                 panel.classList.remove('mostrarPanelTablet');
             }
         });
+        panelSeleccionado.classList.toggle('ocultarPanelTablet');
+        panelSeleccionado.classList.toggle('mostrarPanelTablet');
+    }
+}
+
+function moverTablet(idDestino, panelSeleccionado) {
+    const panel = document.getElementById(panelSeleccionado);
+    const activo = panel.classList.contains('mostrarPanelTablet');
+    // console.log('panel activo: ', activo);
+    if (!activo) {
+        setTimeout(() => {
+            const elemento = document.getElementById(idDestino);
+            if (elemento) {
+                elemento.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }, 50);
     }
 }
 
@@ -94,14 +122,22 @@ document.getElementById('panelDisminucionGasesEI__tituloContenido').addEventList
 
 
 document.getElementById('panelISR__tituloContenido').addEventListener('click', function () {
-    mostrarOcultarPanelTablet(document.getElementById('panelTabletIRS'));
+    mostrarOcultarPanelTablet(document.getElementById('panelTabletIRS'),
+        moverTablet('IDpanelTabletIRS', 'panelTabletIRS')
+    );
 });
 document.getElementById('panelGestionSostenibleA__tituloContenido').addEventListener('click', function () {
-    mostrarOcultarPanelTablet(document.getElementById('panelTabletGestionSostenibleA'));
+    mostrarOcultarPanelTablet(document.getElementById('panelTabletGestionSostenibleA'),
+        moverTablet('IDpanelTabletGestionSostenibleA', 'panelTabletGestionSostenibleA')
+    );
 });
 document.getElementById('panelGestionAreasV__tituloContenido').addEventListener('click', function () {
-    mostrarOcultarPanelTablet(document.getElementById('panelTabletGestionAreasV'));
+    mostrarOcultarPanelTablet(document.getElementById('panelTabletGestionAreasV'),
+        moverTablet('IDpanelTabletGestionAreasV', 'panelTabletGestionAreasV')
+    );
 });
 document.getElementById('panelDisminucionGasesEI__tituloContenido').addEventListener('click', function () {
-    mostrarOcultarPanelTablet(document.getElementById('panelTabletDisminucionGasesEI'));
+    mostrarOcultarPanelTablet(document.getElementById('panelTabletDisminucionGasesEI'),
+        moverTablet('IDpanelTabletDisminucionGasesEI', 'panelTabletDisminucionGasesEI')
+    );
 });

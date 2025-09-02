@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   const contadorBidon = document.querySelector('.numeros__contador');
-  const seccionBidon = document.querySelector('.contenido__informacion');
+  const seccionBidon = document.querySelector('.contenidoBidon');
   const titulo__1 = document.querySelector('.titulo__1');
   const titulo__2 = document.querySelector('.titulo__2');
   const titulo__3 = document.querySelector('.titulo__3');
@@ -68,9 +68,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // CONTROL DE LOS VIDEOS DE YOUTUBE
-
-
-
 let players = [];
 let videoActivo = null;
 let esVideoPrincipal = false;
@@ -228,7 +225,7 @@ function acomodarVideos() {
 //   }
 // }
 
-// TARJETAS EN MODO CELULARA PARA PTAR
+// TARJETAS EN MODO CELULAR PARA PTAR
 
 document.addEventListener("DOMContentLoaded", function () {
   const tarjetas = document.querySelectorAll('.PTARcelular__tarjetas .PTARcelular__tarjeta');
@@ -258,79 +255,79 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // FUNCIÓN PARA ANIMAR GIFS
 
-document.addEventListener("DOMContentLoaded", function () {
-  // Configuración de cada GIF con su respectiva imagen estática
-  const configuracionGIFs = [
-    {
-      id: 'gifTrofeo',
-      gifSrc: '../gifs/20_Aniversario.gif',
-      staticSrc: '../gifs/plantaTemporal.jpg',
-      duration: 4000 // Duración aproximada del GIF en ms
-    },
-    {
-      id: 'gifTubo',
-      gifSrc: '../gifs/Sistema_Irrigacion.gif',
-      staticSrc: '../gifs/Sistema_Irrigacion_psd.png',
-      duration: 1600
-    },
-    {
-      id: 'gifLluvia',
-      gifSrc: '../gifs/nube.gif',
-      staticSrc: '../gifs/plantaTemporal.jpg',
-      duration: 4000
-    },
-    {
-      id: 'gifGota',
-      gifSrc: '../gifs/agua_gotas.gif',
-      staticSrc: '../gifs/plantaTemporal.jpg',
-      duration: 4000
-    },
-    {
-      id: 'gifPlanta',
-      gifSrc: '../gifs/planta.gif',
-      staticSrc: '../gifs/plantaTemporal.jpg',
-      duration: 4000
-    },
+// document.addEventListener("DOMContentLoaded", function () {
+//   // Configuración de cada GIF con su respectiva imagen estática
+//   const configuracionGIFs = [
+//     {
+//       id: 'gifTrofeo',
+//       gifSrc: '../gifs/20_Aniversario.gif',
+//       staticSrc: '../gifs/plantaTemporal.jpg',
+//       duration: 4000 // Duración aproximada del GIF en ms
+//     },
+//     {
+//       id: 'gifTubo',
+//       gifSrc: '../gifs/Sistema_Irrigacion.gif',
+//       staticSrc: '../gifs/Sistema_Irrigacion_psd.png',
+//       duration: 1600
+//     },
+//     {
+//       id: 'gifLluvia',
+//       gifSrc: '../gifs/nube.gif',
+//       staticSrc: '../gifs/plantaTemporal.jpg',
+//       duration: 4000
+//     },
+//     {
+//       id: 'gifGota',
+//       gifSrc: '../gifs/agua_gotas.gif',
+//       staticSrc: '../gifs/plantaTemporal.jpg',
+//       duration: 4000
+//     },
+//     {
+//       id: 'gifPlanta',
+//       gifSrc: '../gifs/planta.gif',
+//       staticSrc: '../gifs/plantaTemporal.jpg',
+//       duration: 4000
+//     },
 
-  ];
+//   ];
 
-  configuracionGIFs.forEach(config => {
-    const elemento = document.getElementById(config.id);
-    if (!elemento) return;
+//   configuracionGIFs.forEach(config => {
+//     const elemento = document.getElementById(config.id);
+//     if (!elemento) return;
 
-    // Estado para controlar si ya se mostró el GIF
-    let yaSeHaMostrado = false;
+//     // Estado para controlar si ya se mostró el GIF
+//     let yaSeHaMostrado = false;
 
-    // Guardar la fuente original (estática) que está en el HTML
-    const originalStaticSrc = elemento.src;
+//     // Guardar la fuente original (estática) que está en el HTML
+//     const originalStaticSrc = elemento.src;
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          if (!yaSeHaMostrado) {
-            // Cambiar temporalmente al GIF, elimina el problema de cargar desde el cache
-            elemento.src = config.gifSrc + '?t=' + Date.now();
+//     const observer = new IntersectionObserver((entries) => {
+//       entries.forEach(entry => {
+//         if (entry.isIntersecting) {
+//           if (!yaSeHaMostrado) {
+//             // Cambiar temporalmente al GIF, elimina el problema de cargar desde el cache
+//             elemento.src = config.gifSrc + '?t=' + Date.now();
 
-            // Después de la duración del GIF, cambiar a la imagen estática
-            setTimeout(() => {
-              elemento.src = config.staticSrc;
-              yaSeHaMostrado = true;
-            }, config.duration);
-          }
-        } else {
-          // Cuando el elemento sale de la vista, resetear para la próxima vez
-          yaSeHaMostrado = false;
-          elemento.src = originalStaticSrc;
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+//             // Después de la duración del GIF, cambiar a la imagen estática
+//             setTimeout(() => {
+//               elemento.src = config.staticSrc;
+//               yaSeHaMostrado = true;
+//             }, config.duration);
+//           }
+//         } else {
+//           // Cuando el elemento sale de la vista, resetear para la próxima vez
+//           yaSeHaMostrado = false;
+//           elemento.src = originalStaticSrc;
+//         }
+//       });
+//     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-    observer.observe(elemento);
+//     observer.observe(elemento);
 
-    // Inicializar con la imagen estática
-    elemento.src = originalStaticSrc;
-  });
-});
+//     // Inicializar con la imagen estática
+//     elemento.src = originalStaticSrc;
+//   });
+// });
 
 
 // FUNCION PARA OBSERVAR LOS EFECTOS DE IMAGENES Y TEXTOS
@@ -343,13 +340,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const animationsConfig = {
     focusIn: {
       class: 'focus-in-contract-bck',
-      resetOnExit: true, // Reinicia al salir del viewport
+      resetOnExit: true,
       threshold: 0.2,
       rootMargin: '0px 0px -50px 0px'
     },
     kenBurns: {
       class: 'kenburns-top-left',
-      resetOnExit: false, // No reinicia (animación continua)
+      resetOnExit: false,
       threshold: 0.1,
     },
     focusExpand: {
