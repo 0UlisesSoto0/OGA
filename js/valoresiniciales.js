@@ -24,8 +24,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Al cambiar el tamaño de la pantalla se aplica
     window.addEventListener('resize', reiniciarValores);
-
-    //Esto se ocupa para solucionar los problemas al cargar la página en SolicituAD en el menú hamburguesa
-    window.addEventListener('load', reiniciarValores);
     iniciarValores();
 });

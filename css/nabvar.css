@@ -1,5 +1,5 @@
 :root {
-  --rojoIconosMuyClaro: rgb(255, 231, 235);
+  --rojoIconosMuyClaro: rgb(255, 231, 235);    
 }
 
 html {
@@ -17,19 +17,15 @@ html {
     padding: 7% 2rem 3% 2rem;
   }
 }
-
-.dropdown1 a:hover {
+.dropdown1 a:hover{
   color: rgba(190, 45, 55, 0.9);
 }
-
-.dropdown2 a:hover {
+.dropdown2 a:hover{
   color: rgba(190, 45, 55, 0.9);
 }
-
-.dropdown3 a:hover {
+.dropdown3 a:hover{
   color: rgba(190, 45, 55, 0.9);
 }
-
 .Encabezado {
   /* padding: 7% 2rem 3% 2rem; */
   width: 100%;
@@ -47,15 +43,14 @@ html {
 }
 
 #Calen:visited,
-#Calen:active {
+#Calen:active{
+  color: black !important;
   text-decoration: none !important;
 }
-
-#Calen {
+#Calen{
   color: black;
 }
-
-#Calen:hover {
+#Calen:hover{
   color: rgba(190, 45, 55, 0.9) !important;
 }
 
@@ -79,7 +74,6 @@ html {
     column-gap: 3rem;
   }
 }
-
 /* aqui */
 @media (min-width: 960px) and (max-width: 1159px) {
   .Encabezado {
@@ -91,7 +85,6 @@ html {
   .Logos {
     column-gap: 3rem;
   }
-
   #logo1 svg,
   #logo2 svg {
     width: 100%;
@@ -156,7 +149,6 @@ html {
     margin-right: 3rem;
     margin-left: 1rem;
   }
-
   .Encabezado {
     padding: 7% 1rem 3% 1rem;
   }
@@ -186,14 +178,10 @@ html {
 
   .dropdown1 a:hover,
   .dropdown2 a:hover,
-  .dropdown3 a:hover {
+  .dropdown3 a:hover{
     background-color: var(--rojoIconosMuyClaro);
   }
 
-  #Calen:visited,
-  #Calen:active {
-    font-weight: 700;
-  }
 }
 
 .underline {
