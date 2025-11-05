@@ -340,7 +340,7 @@
 
 @media (max-width: 959px) {
     .BtnAM {
-        display: flex;
+        display: block;
         justify-content: center;
         align-items: center;
     }

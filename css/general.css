@@ -1,34 +1,40 @@
-*{
-    margin: 0;
-    padding: 0px;
+* {
+  margin: 0;
+  padding: 0px;
 }
 
-*, *:before, *:after {
-    box-sizing: inherit;
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
-html{
-    font-size: 62.5%; 
-    box-sizing: border-box;
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
 }
 
-body{
-    font-size: 16px; /*1rem = 10px*/
+body {
+  font-size: 16px;
+  /*1rem = 10px*/
 
-    line-height: 1.6;
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, auto);
+  line-height: 1.6;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, auto);
 
-    grid-template-areas: "nav"
-        "main"
-        "footer";
-    max-width: 260rem;
-    margin: auto;    
+  grid-template-areas: "nav"
+    "main"
+    "footer";
+  margin: auto;
 }
 
-
+nav,
+main {
+  max-width: 140rem;
+  margin: auto;
+}
 
 
 
@@ -46,11 +52,13 @@ body{
 @keyframes kenburns-bottom {
   0% {
     transform: scale(1) translateY(0);
-    transform-origin: 50% 100%; /* centrado en el eje X, abajo en el eje Y */
+    transform-origin: 50% 100%;
+    /* centrado en el eje X, abajo en el eje Y */
   }
 
   100% {
     transform: scale(1.2) translateY(0);
-    transform-origin: 50% 100%; /* mantiene el mismo punto de origen */
+    transform-origin: 50% 100%;
+    /* mantiene el mismo punto de origen */
   }
 }
